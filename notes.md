@@ -22,3 +22,15 @@ models.user.belongsToMany(models.joke, {through: "userJokes"})
 
 INSIDE models/topic.js
 models.topic.belongsToMany(models.joke, {through: "jokesTopics"})
+
+
+HERE IS THE BASIC PLAN FOR OUR ROUTES:
+main (post login) (get functionality for populating comedian dropdown) + (get functionality for populating topic dropdown) + (post functionality for selecting comedian) + (post functionality for selecting topic) [if these are part of the nav bar that appears on all post-login pages, this only needs to be written once]
+
+comedian (get functionality for populating joke list including laugh button, laugh count) + (post functionality for adding a laugh) + (delete functionality for un-laugh)
+
+topic (get functionality for populating joke list including comedian name, laugh button, laugh count) + (post functionality for adding a laugh) + (delete functionality for un-laugh)
+
+favorites (get functionality for populating joke list including comedian name, un-laugh button, laugh count) + (delete functionality for un-laugh)
+
+profile (change to account settings, update password, delete account) 
