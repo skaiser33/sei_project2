@@ -1,3 +1,9 @@
+PASTE THE FOLLOWING INTO YOUR config.json FILE INSIDE OF THE config/ FOLDER. 
+
+IF YOU'RE NOT ON MAC, ADD USERNAME / PW. 
+
+
+
 {
   "development": {
     "database": "gigglebytes",

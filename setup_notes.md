@@ -1,0 +1,15 @@
+-cd INTO REPO FOLDER "sei_project2"
+-RUN npm install 
+-OPEN THE config_notes.md FILE AND FOLLOW THE INSTRUCTIONS
+-CREATE A .env FILE and copy and paste the following: SESSION_SECRET=
+-ASK STEVEN FOR THE SECRET VIA SLACK
+-CREATE YOUR DATABASE LOCALLY WITH THE FOLLOWING COMMAND IN TERMINAL: createdb gigglebytes
+-MIGRATE WITH THE FOLLOWING COMMAND IN YOUR TERMINAL: sequelize db:migrate 
+
+
+
+
+
+
+
+
