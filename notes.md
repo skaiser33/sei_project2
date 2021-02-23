@@ -1,4 +1,4 @@
-Just for reference, these are model:create statements we used and the associations:
+Just for reference, these are the model:create statements we used and the associations:
 
 sequelize model:create --name comedian --attributes name:string,website:string
 

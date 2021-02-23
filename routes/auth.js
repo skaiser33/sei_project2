@@ -18,7 +18,7 @@ router.post('/signup', (req, res) => {
     if (created) {
       // FLASH
       passport.authenticate('local', {
-        successRedirect: '/',
+        successRedirect: '/main',
         successFlash: 'Account created and logged in'
       })(req, res);
     } else {
@@ -39,7 +39,7 @@ router.get('/login', (req, res) => {
 
 // FLASH
 router.post('/login', passport.authenticate('local', {
-  successRedirect: '/',
+  successRedirect: '/main',
   failureRedirect: '/auth/login',
   failureFlash: 'Invalid username and/or password',
   successFlash: 'You have logged in!'
@@ -52,5 +52,10 @@ router.get('/logout', (req, res) => {
   req.flash('success', 'You have logged out');
   res.redirect('/');
 });
+
+//PROFILE OPTIONS
+//PUT functionality to verify and update password
+
+//DELETE functionality to detelete account (after verifying password and asking for 2nd confirmation) 
 
 module.exports = router;
