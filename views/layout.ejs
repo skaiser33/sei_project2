@@ -8,36 +8,32 @@
   </head>
   <body>
     <header>
-      <nav> 
-             
-        <ul class="menu">
-          <li><a class="logo" href="#">JokePop</a></li>
-          <li><a href="">Home</a></li>
-          <li><a href="">Favs</a></li>
-          <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn">Categories</a>
-              <div class="dropdown-content">
-                  <a href="">Comedians</a>   
-                  <a href="#">Genre</a>
-              </div>
-          </li>       
-            
-
+      <nav>
+        <ul>
+        
+        
           <% if (!currentUser) { %>
             <li><a href="/auth/signup">Signup</a></li>
             <li><a href="/auth/login">Login</a></li>
           <% } else { %>
+            <li><a class="logo" href="#">JokePop</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Favs</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Categories</a>
+                <div class="dropdown-content">
+                    <a href="#">Comedians</a>   
+                    <a href="#">Genre</a>
+                </div>
+            </li> 
             <li><a href="/auth/logout">Logout</a></li>
             <li><a href="/profile">Profile</a></li>
           <% } %>
         </ul>
       </nav>
     </header>
-    <div class="main-container"></div>
     <%- include("partials/alerts") %>
-    <!-- <h1>Project #2...go!</h1> -->
+    <h1>Project #2...go!</h1>
     <%- body %>
-    </div>
   </body>
 </html>
-
