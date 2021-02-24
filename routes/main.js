@@ -4,12 +4,12 @@ const passport = require('../config/ppConfig')
 const db = require('../models');
 const isLoggedIn = require('../middleware/isLoggedIn');
 
-// we use the middleware in the middle of our route to the profile (or any other page we want to restrict)
-router.get('/profile', isLoggedIn, (req, res) => {
-  res.render('profile');
-});
+
 
 //GET functionality for populating comedian dropdown)
+router.get('/', (req, res) => {
+  res.render('main')
+  })    
 
 //GET functionality for populating topic dropdown)  
 
