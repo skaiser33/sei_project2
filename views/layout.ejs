@@ -27,7 +27,7 @@
                 </div>
             </li>  -->
             <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn">Categories</a>
+              <a href="javascript:void(0)" class="dropbtn">Comedians</a>
               <div class="dropdown-content">
                   <form method="POST" action="/comedian">
                       <label for="comedian">Choose a comedian:</label>
@@ -41,6 +41,11 @@
                       </select>
                       <input type="submit" value="Submit">
                   </form>
+              </div>
+              </li>
+              <li class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn">Topic</a>
+              <div class="dropdown-content">
                   <form method="POST" action="/topic">
                       <label for="topic">Choose a topic:</label>
                       <select name="topic" id="topic">
@@ -73,7 +78,7 @@
                       <input type="submit" value="Submit">
                     </form>
               </div>
-          </li>
+            </li>
             <li><a href="/auth/logout">Logout</a></li>
             <li><a href="/profile">Profile</a></li>
           <% } %>
