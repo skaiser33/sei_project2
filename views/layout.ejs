@@ -19,13 +19,61 @@
             <li><a class="logo" href="#">JokePop</a></li>
             <li><a href="#">Home</a></li>
             <li><a href="#">Favs</a></li>
-            <li class="dropdown">
+            <!-- <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Categories</a>
                 <div class="dropdown-content">
                     <a href="#">Comedians</a>   
                     <a href="#">Genre</a>
                 </div>
-            </li> 
+            </li>  -->
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn">Categories</a>
+              <div class="dropdown-content">
+                  <form method="POST" action="/comedian">
+                      <label for="comedian">Choose a comedian:</label>
+                      <select name="comedian" id="comedian">
+                        <option value="placeholder1">Neal Brennan</option>
+                        <option value="placeholder2">George Carlin</option>
+                        <option value="placeholder3">Dave Chapelle</option>
+                        <option value="placeholder4">Ellen DeGeneres</option>
+                        <option value="placeholder5">Kevin Hart</option>
+                        <option value="placeholder6">Jerry Seinfeld</option>
+                      </select>
+                      <input type="submit" value="Submit">
+                  </form>
+                  <form method="POST" action="/topic">
+                      <label for="topic">Choose a topic:</label>
+                      <select name="topic" id="topic">
+                        <option value="placeholder1">Age</option>
+                        <option value="placeholder2">Christmas</option>
+                        <option value="placeholder3">Covid'</option>
+                        <option value="placeholder3">Crime</option>
+                        <option value="placeholder4">Doctors</option>
+                        <option value="placeholder5">Fame</option>
+                        <option value="placeholder6">Family</option>
+                        <option value="placeholder7">Food</option>
+                        <option value="placeholder8">Internet</option>
+                        <option value="placeholder9">Marriage</option>
+                        <option value="placeholder10">Money</option>
+                        <option value="placeholder11">Nature</option>
+                        <option value="placeholder12">People</option>
+                        <option value="placeholder13">Police</option>
+                        <option value="placeholder14">Politics</option>
+                        <option value="placeholder15">Race</option>
+                        <option value="placeholder16">Relationships</option>
+                        <option value="placeholder17">Religion</option>
+                        <option value="placeholder18">Self</option>
+                        <option value="placeholder19">Sex</option>
+                        <option value="placeholder20">Sports</option>
+                        <option value="placeholder21">Travel</option>
+                        <option value="placeholder22">Trump</option>
+                        <option value="placeholder23">TV</option>
+                        <option value="placeholder24">Violence</option>
+                      </select>
+                      <input type="submit" value="Submit">
+                    </form>
+              </div>
+          </li>
             <li><a href="/auth/logout">Logout</a></li>
             <li><a href="/profile">Profile</a></li>
           <% } %>
