@@ -682,6 +682,6 @@ module.exports = {
 
 
   down: function (queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('authors', null, {})
+    return queryInterface.bulkDelete('comedians', null, {})
   }
 }
