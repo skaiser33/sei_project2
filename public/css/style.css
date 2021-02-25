@@ -13,7 +13,7 @@ body {
   margin: 0;
 	padding: 10px;
   background-color: #000;
-  /* display: grid; */
+  display: grid;
   /* mobile first - single column */
   /* grid-template-columns: 1fr;
   grid-template-rows: 100px auto 30px;
@@ -67,8 +67,8 @@ button {
 .noUser {
 	display: flex;
 	position: absolute;
-	margin-left: 28%;
-	margin-top: 80%;
+	margin-top: 750px;
+	text-align: center;
 }
 
 a {
