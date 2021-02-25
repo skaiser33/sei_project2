@@ -67,33 +67,39 @@ router.post('/changepw', function (req, res) {
     // console.log('password is correct');
     db.user.findOne({
       where: { id: req.user.id }
-    })
-      .then((user) => {
-    // db.user.findByPk(req.user.id)
-    // .then(function(user)
-      console.log(user.name);
+    }).then((user) => {
       let hash = bcrypt.hashSync(updatedPassword, 12);
-      // store the hash as the user's password in the db
-      // user.update = hash
+      // update the user's password in the db
       user.update({
         password: hash
       })
-      console.log(`${hash}SUCCESS!`);;
-      
+      console.log('success');
+      req.flash('success','You have successfully updated your password!');
+      // res.render('./profile')
+      res.redirect('/profile');
     })
-    
-    // else {
-    // // console.log('password is incorrect');
+  } else {
+      console.log('fail');
+      // req.flash('fail','Update failed due to incorrect password.');
+      // res.render('./profile')
+      res.redirect('/profile', { alerts: req.flash('Update failed due to incorrect password.') });
   };
-
-
-  // if (password !== confirm) return res.end('passwords do not match');
-  
-  // update the user db here
-
-  res.end('password reset');
 });
 
+//GET route - delete user confirmation page
+router.get('/delete', (req, res) => {
+  res.render('auth/delete')
+})
+
+// POST route - delete user
+// router.post('/delete', function (req, res) {
+//   db.user.destroy({
+//     where: { id: req.user.id }
+//     //LOGOUT
+//   // }).then(function (db) {   
+//   //   res.redirect('/');
+//   // });
+// });
 
 router.get('/logout', (req, res) => {
   // .logut() is added to the req object by passport
