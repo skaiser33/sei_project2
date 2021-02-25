@@ -28,15 +28,30 @@ router.get('/profile', isLoggedIn, (req, res) => {
 router.get('/', function(req, res) {
   db.user.findOne({
     where: {id: 2},
-    include: [db.joke]
+    include: [db.joke, db.comedian]
   }).then(function(user){
-    // console.log("--------", user.dataValues.jokes[0].dataValues.content)
-    res.render('favorites.ejs', {
-      user: user
-    });
+    console.log("--------", user.dataValues.jokes[0].dataValues.content)
+    // console.log("--------", user.dataValues.jokes)
+    res.render('favorites.ejs', {user: user});
   })    
 });
 
+
+
+
+// router.get('/', (req, res) => {
+//   db.comedian.findAll()
+//     .then((comedians) => {
+//       db.topic.findAll()
+//       .then((topics) => {
+//         res.render('main', { allTopics: topics, allComedians: comedians })
+//       })
+//       .catch((error) => {
+//         console.log('Error in GET /', error)
+//         res.status(400).render('main/404')
+//       })
+//     })
+// })
 // router.get('/', function(req, res) {
 //   db.user.findOne({
 //     where: {id: 2},
