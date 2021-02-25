@@ -1,19 +1,24 @@
+j<% console.log() %>
   <%- include('./partials/header.ejs') %>
   <body>
-  <header>
-    <% if (!currentUser) { %>
-      <li><a href="/auth/signup">Signup</a></li>
-      <li><a href="/auth/login">Login</a></li>
-    <% } else { %>
-
-
-    <nav>
+    <header>
+      <nav>
+    <ul>
+      <% if (!currentUser) { %>
+      <div class="noUser">
+        <div class="signUp">
+          <li><a class="landing-btn" href="/auth/signup">Signup</a></li>
+        </div>
+        <div class="logIn">
+          <li><a class="landing-btn" href="/auth/login">Login</a></li>
+        </div>
+      </div>
+      <% } else { %>
       <li><a href="#">Home</a></li>
       <li><a href="#">Favs</a></li>
       <li class="dropdown">
         <div class="dropdown-content">
           <a href="#">Comedians</a>
-          select
           <a href="#">Genre</a>
         </div>
       </li>
@@ -21,8 +26,7 @@
         <a href="javascript:void(0)" class="dropbtn">Comedians</a>
         <div class="dropdown-content">
           <form method="POST" action="/comedian">
-            <!-- <label for="comedian">Choose a comedian:</label> -->
-            <select name="comedian" >
+            <select name="comedian">
               <% allComedians.forEach((x) => {  %>
               <option value=<%= x.id %>><%= x.name %></option>
               <% }) %>
@@ -35,7 +39,6 @@
         <a href="javascript:void(0)" class="dropbtn">Topic</a>
         <div class="dropdown-content">
           <form method="POST" action="/topic">
-            <!-- <label for="topic">Choose a topic:</label> -->
             <select name="topic" id="topic">
               <% allTopics.forEach((idx) => {  %>
               <option value=<%= idx.id %>><%= idx.name %></option>
@@ -72,10 +75,10 @@
       </li>
       <li><a href="/auth/logout">Logout</a></li>
       <li><a href="/profile">Profile</a></li>
-<% } %>
-    </nav>
+      <% } %>
+    </ul>
+  </nav>
   </header>
-
   <%- include("partials/alerts") %>
 
   <%- body %>

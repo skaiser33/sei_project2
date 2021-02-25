@@ -9,39 +9,18 @@ const isLoggedIn = require('../middleware/isLoggedIn');
 //GET functionality for populating comedian dropdown)
 router.get('/', (req, res) => {
   db.comedian.findAll()
-  .then((comedians) => {
-    console.log(comedians)
-      res.render('main', {allComedians: comedians})
-  })
-  .catch((error) => {
-      console.log('Error in GET /', error)
-      res.status(400).render('main/404')
-    })
-})
-//GET functionality for populating topic dropdown)
-router.get('/', (req, res) => {
-  db.topic.findAll()
-  .then((topics) =>{
-    console.log(topics)
-    res.render('main', {allTopics: topics})
-  })
-  .catch((error) => {
-      console.log('Error in GET /', error)
-      res.status(400).render('main/404')
+    .then((comedians) => {
+      db.topic.findAll()
+      .then((topics) => {
+        res.render('main', { allTopics: topics, allComedians: comedians })
+      })
+      .catch((error) => {
+        console.log('Error in GET /', error)
+        res.status(400).render('main/404')
+      })
     })
 })
 
-//
-//
-// const comedians = db.comedians.findAll();
-//
-// router.get('/comedians', (req, res) => {
-//   res.render('layout', {comedians: results})
-// })
-// .catch((error) => {
-//   console.log('Error in GET /', error)
-//   res.status(400).render('main/404')
-// })
 //POST functionality for selecting comedian
 
 
