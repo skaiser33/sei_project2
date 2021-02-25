@@ -8,12 +8,21 @@ const isLoggedIn = require('../middleware/isLoggedIn');
 
 //GET functionality for populating comedian dropdown)
 router.get('/', (req, res) => {
-  res.render('main')
-  })    
+  db.comedian.findAll()
+    .then((comedians) => {
+      db.topic.findAll()
+      .then((topics) => {
+        res.render('main', { allTopics: topics, allComedians: comedians })
+      })
+      .catch((error) => {
+        console.log('Error in GET /', error)
+        res.status(400).render('main/404')
+      })
+    })
+})
 
-//GET functionality for populating topic dropdown)  
+//POST functionality for selecting comedian
 
-//POST functionality for selecting comedian 
 
 //POST functionality for selecting topic [if these are part of the nav bar that appears on all post-login pages, this only needs to be written once]
 
