@@ -64,6 +64,13 @@ button {
 
 /* ---------------- NAVBAR ---------------------*/
 
+.noUser {
+	display: flex;
+	position: absolute;
+	margin-left: 28%;
+	margin-top: 80%;
+}
+
 a {
 	color: #fff;
 }
