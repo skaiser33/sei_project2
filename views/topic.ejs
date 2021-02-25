@@ -1,2 +1,9 @@
-<h2>filtered by Topic</h2>
+<h2><%= topic.name  %></h2>
+
+<% topic.dataValues.jokes.forEach(function(joke) { %>
+  <div>
+    <p> "<%= joke.content  %>" - <%= allComedians[joke.comedianId - 1].name  %>  </p>
+    <p> Laughs: <%= joke.likes  %>  </p>
+  </div>  
+<%}) %> 
 
