@@ -1,13 +1,19 @@
   <%- include('./partials/header.ejs') %>
   <body>
   <header>
+    <% if (!currentUser) { %>
+      <li><a href="/auth/signup">Signup</a></li>
+      <li><a href="/auth/login">Login</a></li>
+    <% } else { %>
+
+
     <nav>
       <li><a href="#">Home</a></li>
       <li><a href="#">Favs</a></li>
       <li class="dropdown">
-
         <div class="dropdown-content">
           <a href="#">Comedians</a>
+          select
           <a href="#">Genre</a>
         </div>
       </li>
@@ -17,12 +23,9 @@
           <form method="POST" action="/comedian">
             <!-- <label for="comedian">Choose a comedian:</label> -->
             <select name="comedian" >
-              <option value="placeholder1">Neal Brennan</option>
-              <option value="placeholder2">George Carlin</option>
-              <option value="placeholder3">Dave Chapelle</option>
-              <option value="placeholder4">Ellen DeGeneres</option>
-              <option value="placeholder5">Kevin Hart</option>
-              <option value="placeholder6">Jerry Seinfeld</option>
+              <% allComedians.forEach((x) => {  %>
+              <option value=<%= x.id %>><%= x.name %></option>
+              <% }) %>
             </select>
             <input type="submit" value="Submit">
           </form>
@@ -34,6 +37,9 @@
           <form method="POST" action="/topic">
             <!-- <label for="topic">Choose a topic:</label> -->
             <select name="topic" id="topic">
+              <% allTopics.forEach((idx) => {  %>
+              <option value=<%= idx.id %>><%= idx.name %></option>
+              <% }) %>
               <option value="placeholder1">Age</option>
               <option value="placeholder2">Christmas</option>
               <option value="placeholder3">Covid'</option>
@@ -66,7 +72,7 @@
       </li>
       <li><a href="/auth/logout">Logout</a></li>
       <li><a href="/profile">Profile</a></li>
-      </ul>
+<% } %>
     </nav>
   </header>
 
