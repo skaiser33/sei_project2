@@ -677,7 +677,7 @@ module.exports = {
       },
     ], { returning: true });
 
-    console.log(bulkUsersJokes);
+    console.log(bulkJokesTopics);
   },
 
 

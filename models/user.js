@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.user.belongsToMany(models.joke, {through: "userJokes"})
+      models.user.belongsToMany(models.joke, {through: "usersJokes"})
     }
     // Compares entered password to hashed password and returns boolean
     validPassword(passwordTyped) {
