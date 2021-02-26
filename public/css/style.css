@@ -242,7 +242,7 @@ label {
   cursor: pointer;
   outline: none;
   font-size: var(--small-font-size);
-	
+	font-weight: 600;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -267,7 +267,7 @@ label {
 
 @media screen and (min-width: 850px) {
 	.login-form {
-			margin-top: 10vh;
+			margin-top: 5vh;
 			display: flex;
 		}
 	}

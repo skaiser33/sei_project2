@@ -8,24 +8,24 @@
       <div class="individual-joke">
         <p> "<%= joke.content  %>" - <%= allComedians[joke.comedianId - 1].name  %> </p>
         <div class="items-container">
-          <div class="laughs-container">
+          <!-- <div class="laughs-container">
             <form method="POST" action="/favorites/addjoke/<%= joke.id %> ">
               <input hidden type="text">
               <button type="submit">Add a laugh</button>
             </form>
-          </div>
+          </div> -->
           <div class="laughs-container">
             <form method="POST" action="/favorites/takejoke/<%= joke.id %> ">
               <input hidden type="text">
               <button type="submit">Remove a laugh</button>
             </form>
           </div>
-          <div class="laughs-container">
+          <!-- <div class="laughs-container">
             <form method="POST" action="/favorites/deletejoke/<%= joke.id %>?_method=DELETE">
               <input hidden type="text">
               <button type="submit">Delete joke</button>
             </form>
-          </div>
+          </div> -->
           <div class="number-container">
             <span class="laughs-number">Laughs: <%= joke.likes  %> </span>
 
