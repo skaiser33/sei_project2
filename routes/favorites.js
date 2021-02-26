@@ -126,22 +126,46 @@ router.get('/', (req, res) => {
 // });
 
 
-// -----------Returns user name but jokes content is undefined ----------//
-// router.get('/', function(req, res) {
-//   db.user.findByPk(3, {include: [db.joke]}).then(function(foundUser){
-//     foundUser.getJokes().then(function(foundJokes) {
-//       console.log('-----',foundUser.name, foundJokes.content)
-//       res.render('favorites.ejs', {
-//       favJokes: foundJokes});
-      
-//     });
-//   });
-// });
 
 
 
+//=== ADD LAUGH BUTTON===//
+//POST functionality for adding a laugh
+router.post('/addjoke/:id', function(req, res){
+  db.joke.findOne({
+    where: {id: req.params.id}
+  }).then(function(foundJoke){
+    // console.log("______0-----", foundJoke)
+    foundJoke.likes = foundJoke.likes + 1
+    console.log("+++++++", foundJoke)
+    foundJoke.save()
+    res.redirect('/favorites')
+  })
+})
 
+//POST functionality for un-laugh
 
-//DELETE functionality for un-laugh
+router.post('/takejoke/:id', function(req, res){
+  db.joke.findOne({
+    where: {id: req.params.id}
+  }).then(function(foundJoke){
+    // console.log("______0-----", foundJoke)
+    foundJoke.likes = foundJoke.likes - 1
+    // console.log("+++++++", foundJoke)
+    foundJoke.save()
+    res.redirect('/favorites')
+  })
+})
+
+// ##### NOT TESTED YET ############//
+//DELETE favorite joke from user list
+router.delete('/deletejoke/:id', function(req, res) {
+  db.joke.destroy({
+    where: {id: req.params.id}
+  }).then(function(){
+    res.redirect('/favorites')
+  })
+})
+
 
 module.exports = router;
