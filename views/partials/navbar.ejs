@@ -34,7 +34,7 @@
       <li class="dropdown">
         <a href="javascript:void(0)" class="dropbtn">Topics</a>
         <div class="dropdown-content">
-          <form method="POST" action="/topic">
+          <form method="POST" action="/topic/ ">
             <select name="topic" id="topic">
               <% allTopics.forEach((idx) => {  %>
               <option value=<%= idx.id %>><%= idx.name %></option>
