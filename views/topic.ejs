@@ -1,13 +1,33 @@
 <%- include('./partials/navbar.ejs') %>
 
-<h2><%= topic.name  %></h2>
-
-<% topic.dataValues.jokes.forEach(function(joke) { %>
-  <div class="joke-container" >
-    <p> "<%= joke.content  %>" - <%= allComedians[joke.comedianId - 1].name  %>  </p>
-    <p> Laughs: <%= joke.likes  %>  </p>
-  </div>  
-<%}) %> 
 
 
 
+
+
+
+
+<div class="main-container">
+  <main>
+    <h2 style="color: white;"><%= topic.name  %></h2>
+    <% topic.dataValues.jokes.forEach(function(joke) { %>
+      <div class="jokes-container">
+          <div class="individual-joke">
+              <p> "<%= joke.content  %>" - <%= allComedians[joke.comedianId - 1].name  %> </p>
+                <div class="items-container">
+                  <div class="laughs-container">
+                    <form method="POST" action="/topic/addjoke/<%= joke.id %> ">
+                      <input hidden type="text">
+                      <button type="submit">Add a laugh</button>
+                    </form>
+                  </div>
+                  <div class="number-container">
+                      <span class="laughs-number">Laughs: <%= joke.likes  %>  </span>
+                      
+                  </div>
+                </div>
+          </div>
+      </div>
+    <%}) %> 
+    </main>
+</div>
