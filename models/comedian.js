@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // models.comedian.hasMany(models.joke)
+      models.comedian.hasMany(models.joke)
     }
   };
   comedian.init({
