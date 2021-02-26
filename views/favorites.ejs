@@ -21,9 +21,9 @@
             </form>
           </div>
           <div class="laughs-container">
-            <form method="POST" action="/favorites/takejoke/<%= joke.id %> ">
+            <form method="POST" action="/favorites/deletejoke/<%= joke.id %>?_method=DELETE">
               <input hidden type="text">
-              <button type="submit">Remove a laugh</button>
+              <button type="submit">Delete joke</button>
             </form>
           </div>
           <div class="number-container">
