@@ -34,16 +34,8 @@ router.get('/', (req, res) => {
 });
 
 
-//
-// in template
-// <% comedians.forEach %>
-// <option value= results.id>results.name</option>
-// <% } %>
 
 
-// what makes up a dropdown list
-//
-// where does this data come from
 
 
 //=== ADD LAUGH BUTTON===//
@@ -57,10 +49,10 @@ router.post('/addjoke/:id', async (req, res) => {
     foundUser.addJoke(foundJoke)
     console.log('===========')
     console.log(foundUser.name, 'has faved', foundJoke.content)
-    res.redirect('/topic')
+    res.redirect('/comedian')
   } catch (error) {
     req.flash('error', error.message)
-    res.redirect('/topic')
+    res.redirect('/comedian')
   }	 
 })
 
@@ -74,16 +66,14 @@ router.post('/takejoke/:id', async (req, res) => {
     foundUser.removeJoke(foundJoke)
     console.log('===========')
     console.log(foundUser.name, 'has removed', foundJoke.content)
-    res.redirect('/topic') 
+    res.redirect('/comedian') 
   } catch (error) {
     req.flash('error', error.message)
-    res.redirect('/topic')
+    res.redirect('/comedian')
   }	 
 })
 
-//POST functionality for adding a laugh
 
-//DELETE functionality for un-laugh
 
 
 

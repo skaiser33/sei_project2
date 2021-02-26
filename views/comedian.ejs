@@ -1,13 +1,5 @@
 <%- include('./partials/navbar.ejs') %>
 
-<h2><%= comedian.name  %></h2>
-
-<% comedian.dataValues.jokes.forEach(function(joke) { %>
-  <div class="joke-container" >
-    <p> "<%= joke.content  %>"  %>  </p>
-    <p> Laughs: <%= joke.likes  %>  </p>
-  </div>  
-<%}) %> 
 
 
 
@@ -21,13 +13,13 @@
         <p> "<%= joke.content  %>"  %> </p>
         <div class="items-container">
           <div class="laughs-container">
-            <form method="POST" action="/topic/addjoke/<%= joke.id %> ">
+            <form method="POST" action="/comedian/addjoke/<%= joke.id %> ">
               <input hidden type="text">
               <button type="submit">Add a laugh</button>
             </form>
           </div>
           <div class="laughs-container">
-            <form method="POST" action="/topic/takejoke/<%= joke.id %> ">
+            <form method="POST" action="/comedian/takejoke/<%= joke.id %> ">
               <input hidden type="text">
               <button type="submit">Remove a laugh</button>
             </form>
