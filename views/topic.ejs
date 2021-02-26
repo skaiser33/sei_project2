@@ -1,7 +1,7 @@
 <h2><%= topic.name  %></h2>
 
 <% topic.dataValues.jokes.forEach(function(joke) { %>
-  <div>
+  <div class="joke-container" >
     <p> "<%= joke.content  %>" - <%= allComedians[joke.comedianId - 1].name  %>  </p>
     <p> Laughs: <%= joke.likes  %>  </p>
   </div>  
