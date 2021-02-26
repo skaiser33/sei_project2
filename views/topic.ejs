@@ -1,3 +1,5 @@
+<%- include('./partials/navbar.ejs') %>
+
 <h2><%= topic.name  %></h2>
 
 <% topic.dataValues.jokes.forEach(function(joke) { %>
@@ -6,4 +8,6 @@
     <p> Laughs: <%= joke.likes  %>  </p>
   </div>  
 <%}) %> 
+
+
 
