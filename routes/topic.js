@@ -63,8 +63,25 @@ router.post('/addjoke/:id', function(req, res){
 })
 
 
+//POST functionality for un-laugh
+
+router.post('/takejoke/:id', function(req, res){
+  db.joke.findOne({
+    where: {id: req.params.id}
+  }).then(function(foundJoke){
+    // console.log("______0-----", foundJoke)
+    foundJoke.likes = foundJoke.likes - 1
+    // console.log("+++++++", foundJoke)
+    foundJoke.save()
+    res.redirect('/topic')
+  })
+})
+
 
 
 //DELETE functionality for un-laugh
+
+
+
 
 module.exports = router;
