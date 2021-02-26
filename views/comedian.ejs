@@ -1,2 +1,12 @@
 <%- include('./partials/navbar.ejs') %>
-<h2>filtered by Comedian</h2>
+
+<h2><%= comedian.name  %></h2>
+
+<% comedian.dataValues.jokes.forEach(function(joke) { %>
+  <div class="joke-container" >
+    <p> "<%= joke.content  %>"  %>  </p>
+    <p> Laughs: <%= joke.likes  %>  </p>
+  </div>  
+<%}) %> 
+
+
