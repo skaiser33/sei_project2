@@ -1,7 +1,7 @@
 :root {
-	--large-font-size: 140px;
-  --medium-font-size: 60px;
-  --small-font-size: 40px;
+	--large-font-size: 65px;
+  --medium-font-size: 25px;
+  --small-font-size: 16px;
   --red: #E06666;
   --green: #69A74F;
   --title-font-family: 'Montserrat', sans-serif;
@@ -9,31 +9,14 @@
 
 /* ----- BODY --------*/
 body {
-  height: 100%;
-	width: 100%;
+  height: 100vh;
+	width: 100vw;
   margin: 0;
 	padding: 10px;
   background-color: #000;
-  display: grid;
-  /* mobile first - single column */
-  /* grid-template-columns: 1fr;
-  grid-template-rows: 100px auto 30px;
-  grid-template-areas:
-    "header"
-    "content"
-    "footer"; */
-/* } */
-/* header {
-  grid-area: nav;
-} */
-/* .main-container { */
-  /* grid-area: content; */
-  /* display: flex; */
-  /* grid-template-columns:  1fr;
-  grid-template-rows: 100px auto ;
-  grid-template-areas:
-  "aside"
-  "main"; */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 p {
@@ -65,12 +48,11 @@ button {
 
 /* ---------------- NAVBAR ---------------------*/
 
-.noUser {
+/* .noUser {
 	display: flex;
-	position: absolute;
-	margin-top: 750px;
-	text-align: center;
-}
+	flex-direction: column;
+	align-content: center;
+} */
 
 a {
 	color: #fff;
@@ -145,18 +127,30 @@ li.dropdown {
 .landing-container {
 display: flex;
 align-items: center;
-margin-top: 50%;
-padding: 50px;
-flex-direction: column;
+margin-top: 25vh;
 }
 
 .landing-title {
   color: var(--red);
   font-family: var(--title-font-family);
+	font-size: var(--large-font-size);
 }
 
 span {
   color: var(--green);
+}
+
+h1 {
+  font-size: var(--large-font-size);
+  color: #fff;
+  margin: 0;
+  font-family: var(--title-font-family);
+}
+
+@media screen and (min-width: 850px) {
+	.landing-title {
+		font-size: 120px;
+	}
 }
 
 .landing-p {
@@ -167,20 +161,24 @@ span {
   margin: 0;
 }
 
-h1 {
-  font-size: var(--large-font-size);
-  color: #fff;
-  margin: 0;
-  font-family: var(--title-font-family);
-}
-
 .landing-p2{
   color: #fff;
   font-size: var(--small-font-size);
-  margin: 0 0 100px 0;
+	margin-top: 0;
+  margin-bottom: 35px;
   font-family: 'Istok Web', sans-serif;
   letter-spacing: 3px;
   text-align: center;
+}
+
+@media screen and (min-width: 850px) {
+	.landing-p, .landing-p2 {
+		font-size: var(--medium-font-size);
+	}
+}
+
+.signup-btn {
+	margin-bottom: 20px;
 }
 
 .btn-container {
@@ -192,32 +190,92 @@ h1 {
   background-color: #000;
   border: 4px solid #fff;
   border-radius: 75px;
-  font-size: 25px;
   color: #fff;
   cursor: pointer;
   outline: none;
-  padding: 50px 100px;
+  padding: 15px 100px;
   font-size: var(--small-font-size);
-  margin-bottom: 40px;
+}
+
+.landing-btn2 {
+	background-color: #000;
+  border: 4px solid #fff;
+  border-radius: 75px;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  padding: 15px 105px;
+  font-size: var(--small-font-size);
 }
 
 /* -----------------------------logIn page-------------------------------------------------- */
 
+.login-title {
+	margin-top: 10vh;
+}
+
 .loginForm {
-	margin: 50%;
+
+	margin-top: 12vh;
 }
 
 label {
 	color: #fff;
+	margin-bottom: 15px;
 }
 
+.login-email, .login-pass {
+	background-color: #000;
+	color: #fff;
+	border: 2px solid #fff;
+	border-radius: 25px;
+	padding: 10px 50px;
+	outline: none;
+}
 
+.login-submit-btn {
+	background-color: #000;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  padding: 15px 100px;
+  font-size: var(--small-font-size);
+}
 
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #fff;
+	text-align: center;
+	font-size: var(--small-font-size)
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #fff;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #fff;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #fff;
+}
+
+/* ---------------------------------signUp page---------------------------------------------- */
+.signUp {
+	display: flex;
+	flex-direction: column;
+	margin-top: 25vh;
+}
+
+input {
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+
+/* -------------------------------------------------------------------------------------------- */
 
 
 
 footer {
-  margin: 20px 0px;
+  margin-top: 60px;
   text-align: center;
 	color: #fff;
 }
