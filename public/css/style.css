@@ -127,7 +127,7 @@ li.dropdown {
 .landing-container {
 display: flex;
 align-items: center;
-margin-top: 25vh;
+margin-top: 15vh;
 }
 
 .landing-title {
@@ -212,11 +212,13 @@ h1 {
 
 .login-title {
 	margin-top: 10vh;
+	margin-bottom: 15px;
 }
 
 .loginForm {
-
-	margin-top: 12vh;
+	margin-top: 10vh;
+	display: flex;
+	flex-direction: column;
 }
 
 label {
@@ -229,18 +231,18 @@ label {
 	color: #fff;
 	border: 2px solid #fff;
 	border-radius: 25px;
-	padding: 10px 50px;
+	padding: 15px 50px;
 	outline: none;
 }
 
 .login-submit-btn {
 	background-color: #000;
   border: none;
-  color: #fff;
+  color: var(--green);
   cursor: pointer;
   outline: none;
-  padding: 15px 100px;
   font-size: var(--small-font-size);
+	
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -258,11 +260,30 @@ label {
   color: #fff;
 }
 
+.alert {
+	color: var(--red);
+	margin-top: 20px;
+}
+
+@media screen and (min-width: 850px) {
+	.login-form {
+			margin-top: 10vh;
+			display: flex;
+		}
+	}
+
 /* ---------------------------------signUp page---------------------------------------------- */
-.signUp {
+
+.signup-container {
 	display: flex;
 	flex-direction: column;
-	margin-top: 25vh;
+	align-items: center;
+	text-align: center;
+}
+
+.signup-title {
+	margin-top: 4vh;
+	margin-bottom: 4vh;
 }
 
 input {
@@ -270,14 +291,30 @@ input {
 	margin-bottom: 15px;
 }
 
+@media screen and (min-width: 850px) {
+	.signup-container {
+		align-items: center;
+		height: 80vh;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+	}
+	input {
+		margin-right: 20px;
+	}
+}
+
 /* -------------------------------------------------------------------------------------------- */
 
 
 
 footer {
-  margin-top: 60px;
-  text-align: center;
+  bottom: 0;
+	position: absolute;
+	width: 100%;
 	color: #fff;
+	height: 1.5rem;
+	text-align: center;
 }
 
 aside{
