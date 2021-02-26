@@ -1,65 +1,6 @@
-<<<<<<< HEAD
-
-  <%- include('./partials/header.ejs') %>
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <% if (!currentUser) { %>
-            <div class="noUser">
-              <div class="signUp">
-                <li><a class="landing-btn" href="/auth/signup">Signup</a></li>
-              </div>
-              <div class="logIn">
-                <li><a class="landing-btn" href="/auth/login">Login</a></li>
-              </div>
-            </div>
-          <% } else { %>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Favs</a></li>
-            <li class="dropdown">
-              <div class="dropdown-content">
-                <a href="#">Comedians</a>
-                <a href="#">Genre</a>
-              </div>
-            </li>
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn">Comedians</a>
-              <div class="dropdown-content">
-                <form method="POST" action="/comedian">
-                  <select name="comedian">
-                    <% allComedians.forEach((x) => {  %>
-                    <option value=<%= x.id %>><%= x.name %></option>
-                    <% }) %>
-                  </select>
-                  <input type="submit" value="Submit">
-                </form>
-              </div>
-            </li>
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn">Topic</a>
-              <div class="dropdown-content">
-                <form method="POST" action="/topic">
-                  <select name="topic" id="topic">
-                    <% allTopics.forEach((idx) => {  %>
-                    <option value=<%= idx.id %>><%= idx.name %></option>
-                    <% }) %>
-                  </select>
-                  <input type="submit" value="Submit">
-                </form>
-              </div>
-            </li>
-            <li><a href="/auth/logout">Logout</a></li>
-            <li><a href="/profile">Profile</a></li>
-          <% } %>
-        </ul>
-      </nav>
-    </header>
-=======
   <%- include('./partials/header.ejs') %>
   <body>
     
->>>>>>> submain
   <%- include("partials/alerts") %>
 
   <%- body %>
