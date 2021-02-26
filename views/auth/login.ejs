@@ -1,9 +1,11 @@
 <form class="loginForm" action="/auth/login" method="POST">
-  <label for="auth-email">Email</label>
-  <input id="auth-email" type="email" name="email">
-
-  <label for="auth-password">Password</label>
-  <input id="auth-password" type="password" name="password">
-
+  <div class="email">
+    <label for="auth-email">Email</label>
+    <input id="auth-email" type="email" name="email">
+  </div>
+  <div class="password">
+    <label for="auth-password">Password</label>
+    <input id="auth-password" type="password" name="password">
+  </div>
   <input type="submit" value="Log In">
 </form>
