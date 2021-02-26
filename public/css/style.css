@@ -46,13 +46,69 @@ button {
   padding: 5px;
 }
 
-/* ---------------- NAVBAR ---------------------*/
+/* ----------------sanwich button nav----------------- */
 
-/* .noUser {
+.menu-btn {
 	display: flex;
 	flex-direction: column;
-	align-content: center;
-} */
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	width: 80px;
+	height: 80px;
+	cursor: pointer;
+	transition: all .5s ease-in-out;
+}
+
+.menu-btn_burger {
+	width: 50px;
+	height: 6px;
+	background-color: #fff;
+	transition: all .5s ease-in-out;
+	border-radius: 5px;
+}
+
+.menu-btn_burger::before,
+.menu-btn_burger::after {
+	width: 50px;
+	height: 6px;
+	background-color: #fff;
+	transition: all .5s ease-in-out;
+	border-radius: 5px;
+	position: absolute;
+	content: '';
+}
+
+/* --------top & buttom line in menu----------- */
+.menu-btn_burger::before {
+	transform: translateY(-15px);
+}
+
+.menu-btn_burger::after {
+	transform: translateY(15px);
+}
+
+/* ----------animation of hamburger symbol------------- */
+.menu-btn.open .menu-btn_burger {
+	background: transparent;
+	box-shadow: none;
+	transform: translateX(-50px);
+}
+
+.menu-btn.open .menu-btn_burger::before {
+	transform: rotate(45deg) translate(35px, -35px);
+}
+
+.menu-btn.open .menu-btn_burger::after {
+	transform: rotate(-45deg) translate(35px, 35px);
+}
+
+
+/* ---------------- NAVBAR ---------------------*/
+
+.nav-container {
+
+}
 
 a {
 	color: #fff;
@@ -70,10 +126,6 @@ form > input {
 	color: #fff;
 	padding: 16px 18px;
 }
-
-/* select:focus > option:checked {
-    background: #000 !important;
-} */
 
 nav ul li {
   margin-right: .3em;
