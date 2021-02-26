@@ -49,6 +49,9 @@ router.get('/', (req, res) => {
 //   })
 // });
 
+
+
+//=== ADD LAUGH BUTTON===//
 //POST functionality for adding a laugh
 router.post('/addjoke/:id', function(req, res){
   db.joke.findOne({
