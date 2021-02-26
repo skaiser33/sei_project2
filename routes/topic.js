@@ -77,16 +77,14 @@ router.get('/', (req, res) => {
 
 router.post('/addjoke/:id', async (req, res) => {
   try {
-  const foundJoke = await db.joke.findOne({where: {id: req.params.id}})
-  foundJoke.likes = foundJoke.likes + 1
-  foundJoke.save()
-  const foundUser = await db.user.findOne({
-      where: {id: 1}   //REMEMBER TO change to req.user.id
-  })    
-  foundUser.addJoke(foundJoke)
-  console.log('===========')
-  console.log(foundUser.name, 'has faved', foundJoke.content)
-  res.redirect('/topic')
+    const foundJoke = await db.joke.findByPk(req.params.id)
+    foundJoke.likes = foundJoke.likes + 1
+    foundJoke.save()
+    const foundUser = await db.user.findByPk(1)     //REMEMBER TO change to req.user.id
+    foundUser.addJoke(foundJoke)
+    console.log('===========')
+    console.log(foundUser.name, 'has faved', foundJoke.content)
+    res.redirect('/topic')
   } catch (error) {
     req.flash('error', error.message)
     res.redirect('/topic')
@@ -109,12 +107,10 @@ router.post('/addjoke/:id', async (req, res) => {
 
 router.post('/takejoke/:id', async (req, res) => {
   try {
-    const foundJoke = await db.joke.findOne({where: {id: req.params.id}})
+    const foundJoke = await db.joke.findByPk(req.params.id)
     foundJoke.likes = foundJoke.likes - 1
     foundJoke.save()  
-    const foundUser = await db.user.findOne({
-        where: {id: 1}   //REMEMBER TO change to req.user.id
-    })       
+    const foundUser = await db.user.findByPk(1)     //REMEMBER TO change to req.user.id
     foundUser.removeJoke(foundJoke)
     console.log('===========')
     console.log(foundUser.name, 'has removed', foundJoke.content)
