@@ -4,14 +4,34 @@ const passport = require('../config/ppConfig')
 const db = require('../models');
 const isLoggedIn = require('../middleware/isLoggedIn');
 
-// we use the middleware in the middle of our route to the profile (or any other page we want to restrict)
-router.get('/profile', isLoggedIn, (req, res) => {
-  res.render('profile');
-});
 
 //GET functionality for populating joke list including laugh button, laugh count
-//make a call to the database to display
+router.get('/', (req, res) => {
+  db.comedian.findAll()
+    .then((comedians) => {
+      db.topic.findAll()
+      .then((topics) => {
+        db.comedian.findOne({
+        where: {id: 1},         //REMEMBER TO change to actual comedian id
+        include: [db.joke]
+      }).then((comedian) => {
 
+          
+          // comedian.getJokes().then(function(jokes) {
+            //do something with pets here
+          // });
+        // });
+        // console.log("--------", user.dataValues.jokes[0].dataValues.content)
+        res.render('comedian.ejs', {comedian: comedian, allTopics: topics, allComedians: comedians});
+      // }).catch((error) => {
+      //   console.log('Error in GET /', error)
+      //   res.status(400).render('main/404')
+
+
+      })
+    })  
+  })
+});
 
 
 //

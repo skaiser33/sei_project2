@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const passport = require('../config/ppConfig')
 const db = require('../models');
+const bcrypt = require('bcrypt')
+// let currentUser
 
 router.get('/signup', (req, res) => {
   res.render('auth/signup');
@@ -45,17 +47,77 @@ router.post('/login', passport.authenticate('local', {
   successFlash: 'You have logged in!'
 }));
 
+// router.post('/changepw', passport.authenticate('local', {
+//   successRedirect: '/profile',
+//   failureRedirect: '/profile',
+//   failureFlash: 'Invalid  password',
+//   successFlash: 'You have successfully changed your password!'
+// }));
+
+// POST route - modify password
+router.post('/changepw', function (req, res) {       
+  // console.log(req.user);
+  // console.log(req.body);
+
+  const oldPassword = req.body.oldpassword;
+  const updatedPassword = req.body.updatedpassword;
+  
+
+  if (bcrypt.compareSync(oldPassword, req.user.password)) {
+    // console.log('password is correct');
+    db.user.findOne({
+      where: { id: req.user.id }
+    }).then((user) => {
+      let hash = bcrypt.hashSync(updatedPassword, 12);
+      // update the user's password in the db
+      user.update({
+        password: hash
+      })
+      console.log('success');
+      req.flash('success','You have successfully updated your password!');
+      // res.render('./profile')
+      res.redirect('/profile');
+    })
+  } else {
+      console.log('fail');
+      req.flash('error','Update failed due to incorrect password.');
+      res.redirect('/profile');
+  };
+});
+
+//GET route - delete user confirmation page
+router.get('/delete', (req, res) => {
+  res.render('auth/delete')
+});
+
+// POST route - delete user
+router.post('/delete', function (req, res) {
+  const userPassword = req.body.password;
+  if (bcrypt.compareSync(userPassword, req.user.password)) {
+    console.log('password is correct');
+    db.user.destroy({
+      where: { id: req.user.id }
+    }).then(function (db) {   
+      //LOGOUT
+      req.logout();
+      // FLASH
+      req.flash('success', 'You have deleted your account and logged out');
+      res.redirect('/');
+    // });
+    });
+  } else {
+      console.log('fail');
+      req.flash('error','Delete unsuccessful due to incorrect password.');
+      res.redirect('/profile');
+  };
+});
+
 router.get('/logout', (req, res) => {
   // .logut() is added to the req object by passport
   req.logout();
   // FLASH
   req.flash('success', 'You have logged out');
   res.redirect('/');
-});
-
-//PROFILE OPTIONS
-//PUT functionality to verify and update password
-
-//DELETE functionality to detelete account (after verifying password and asking for 2nd confirmation) 
+}); 
 
 module.exports = router;
