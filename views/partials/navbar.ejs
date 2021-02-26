@@ -11,41 +11,47 @@
         </div>
       </div>
       <% } else { %>
-      <li><a href="./main">Home</a></li>
-      <li><a href="./favorites">Favs</a></li>
-      <li class="dropdown">
-        <div class="dropdown-content">
-          <a href="#">Comedians</a>
+      <div class="nav-container">
+        <div class="menu-btn">
+          <div class="menu-btn_burger">
+          <li class="home-link"><a href="./main">Home</a></li>
+          <li><a href="./favorites">Favs</a></li>
+          <li class="dropdown">
+            <div class="dropdown-content">
+              <a href="#">Comedians</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Comedians</a>
+            <div class="dropdown-content">
+              <form method="POST" action="/comedian">
+                <select name="comedian">
+                  <% allComedians.forEach((x) => {  %>
+                  <option value=<%= x.id %>><%= x.name %></option>
+                  <% }) %>
+                </select>
+                <input type="submit" value="Submit">
+              </form>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Topics</a>
+            <div class="dropdown-content">
+              <form method="POST" action="/topic">
+                <select name="topic" id="topic">
+                  <% allTopics.forEach((idx) => {  %>
+                  <option value=<%= idx.id %>><%= idx.name %></option>
+                  <% }) %>
+                </select>
+                <input type="submit" value="Submit">
+              </form>
+            </div>
+          </li>
+          <li class="logout-link"><a href="/auth/logout">Logout</a></li>
+          <li class="profile-link"><a href="/profile">Profile</a></li>
+          </div>
         </div>
-      </li>
-      <li class="dropdown">
-        <a href="javascript:void(0)" class="dropbtn">Comedians</a>
-        <div class="dropdown-content">
-          <form method="POST" action="/comedian">
-            <select name="comedian">
-              <% allComedians.forEach((x) => {  %>
-              <option value=<%= x.id %>><%= x.name %></option>
-              <% }) %>
-            </select>
-            <input type="submit" value="Submit">
-          </form>
-        </div>
-      </li>
-      <li class="dropdown">
-        <a href="javascript:void(0)" class="dropbtn">Topics</a>
-        <div class="dropdown-content">
-          <form method="POST" action="/topic">
-            <select name="topic" id="topic">
-              <% allTopics.forEach((idx) => {  %>
-              <option value=<%= idx.id %>><%= idx.name %></option>
-              <% }) %>
-            </select>
-            <input type="submit" value="Submit">
-          </form>
-        </div>
-      </li>
-      <li><a href="/auth/logout">Logout</a></li>
-      <li><a href="/profile">Profile</a></li>
+      </div>
   <% } %>
     </ul>
   </nav>
