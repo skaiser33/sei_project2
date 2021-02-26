@@ -157,9 +157,15 @@ router.post('/takejoke/:id', function(req, res){
   })
 })
 
-
+// ##### NOT TESTED YET ############//
 //DELETE favorite joke from user list
-
+router.delete('/deletejoke/:id', function(req, res) {
+  db.joke.destroy({
+    where: {id: req.params.id}
+  }).then(function(){
+    res.redirect('/favorites')
+  })
+})
 
 
 module.exports = router;
