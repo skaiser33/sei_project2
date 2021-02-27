@@ -9,7 +9,7 @@
               <h1>Random Joke:</h1>
               <%const randomTopic = allTopics[Math.floor(Math.random() * allTopics.length)]%>
               <%const randomJoke = randomTopic.dataValues.jokes[Math.floor(Math.random() * randomTopic.jokes.length)]%>
-              <p>"<%= randomJoke.content  %> - <%= allComedians[randomJoke.comedianId - 1].name  %></p>  
+              <p> "<%= joke.content  %>" - <a href="/comedian?comedian=<%= allComedians[joke.comedianId - 1].id%>"><%= allComedians[joke.comedianId - 1].name  %></a></p>  
               <div class="items-container">
 
                 <div class="laughs-container">
