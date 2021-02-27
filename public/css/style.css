@@ -17,6 +17,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	color: #fff;
 }
 
 p {
@@ -74,7 +75,7 @@ header {
 
 .menu-btn_burger::before,
 .menu-btn_burger::after {
-	width: 50px;
+	width: 200px;
 	height: 6px;
 	background-color: #fff;
 	transition: all .5s ease-in-out;
@@ -85,7 +86,7 @@ header {
 
 /* -------------hidding menu--------------------------- */
 
-.menu-btn {
+/* .menu-btn {
 	overflow: hidden;
 	display: block;
 }
@@ -104,14 +105,14 @@ header {
 
 .menu-btn open {
 	display: block;
-}
+} */
 
 /* .nav-container .toggler:checked ~ .menu-btn_burger {
 	visibility: visible;
 } */
 
 /* --------top & buttom line in menu----------- */
-.menu-btn_burger::before {
+/* .menu-btn_burger::before {
 	transform: translateY(-15px);
 }
 
@@ -120,7 +121,7 @@ header {
 }
 
 /* ----------animation of hamburger symbol------------- */
-.menu-btn.open .menu-btn_burger {
+/* .menu-btn.open .menu-btn_burger {
 	background: transparent;
 	box-shadow: none;
 	transform: translateX(-50px);
@@ -132,13 +133,14 @@ header {
 
 .menu-btn.open .menu-btn_burger::after {
 	transform: rotate(-45deg) translate(35px, 35px);
-}
+} */
 
 
 /* ---------------- NAVBAR ---------------------*/
 
 .nav-container {
-
+	margin-bottom: 200px;
+	margin-left: 100px;
 }
 
 a {
