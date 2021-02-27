@@ -2,7 +2,7 @@
 
 <div class="main-container">
   <main>
-    <h2 class="heading"><%= user.name  %> 's Favorite Jokes</h2>
+    <h1 class="heading subheading"><%= user.name  %> 's Favorite Jokes</h1>
     <% user.dataValues.jokes.sort(function(a, b){return b.likes-a.likes}).forEach(function(joke) { %>
     <div class="jokes-container">
       <div class="individual-joke">
@@ -17,7 +17,7 @@
           <div class="laughs-container">
             <form method="POST" action="/favorites/takejoke/<%= joke.id %> ">
               <input hidden type="text">
-              <button type="submit">Remove a laugh</button>
+              <button class="laugh-btn" type="submit">Remove a laugh</button>
             </form>
           </div>
           <!-- <div class="laughs-container">

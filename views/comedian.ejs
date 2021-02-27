@@ -6,7 +6,7 @@
 <!-- password1 -->
 <div class="main-container">
   <main>
-    <h2 class="heading"><%= comedian.name  %></h2>
+    <h1 class="heading subheading"><%= comedian.name  %></h1>
     <% comedian.dataValues.jokes.sort(function(a, b){return b.likes-a.likes}).forEach(function(joke) { %>
     <div class="jokes-container">
       <div class="individual-joke">
@@ -18,14 +18,14 @@
           <div class="laughs-container">
             <form method="POST" action="/comedian/addjoke/<%= joke.id %> ">
               <input hidden type="text">
-              <button type="submit">Add a laugh</button>
+              <button class="laugh-btn" type="submit">Add a laugh</button>
             </form>
           </div>
           <!-- % } else { %> -->
           <div class="laughs-container">
             <form method="POST" action="/comedian/takejoke/<%= joke.id %> ">
               <input hidden type="text">
-              <button type="submit">Remove a laugh</button>
+              <button class="laugh-btn" type="submit">Remove a laugh</button>
             </form>
           </div>
           <!-- % } %> -->

@@ -17,6 +17,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	color: #fff;
 }
 
 p {
@@ -33,6 +34,7 @@ span {
 
 .number-container {
 	padding-left: 20px;
+	padding-top: 5px;
 }
 
 button {
@@ -392,37 +394,48 @@ aside{
   padding: 5px 5%;
 }
 main{
-  /* grid-area: main;
-  display: flex;
-  flex-direction: row; */
-  /* margin: 5px; */
-  padding: 5px 6%;
+	
+    padding: 10px;
 }
-/* header, footer {
-display: flex;
-flex-direction: column;
-justify-content: center;
-} */
+
 
 
 
 
 /* ---------------------------------Homepage--------------------------------------------- */
 .heading {
-	color: #fff;
+	margin-top: 10%;
 	padding: 10% 5% 1%;
 	text-align: center;
 	font-family: var(--title-font-family);
+	color: var(--red);
+	font-size: 50px;
+
 }
+
 .jokes-container {
 	padding: 5%;
 	font-family: 'Istok Web', sans-serif;
 }
 .info-container {
-	padding-bottom: 10px;
+	padding: 20px 0px;
+	text-align: center;
+	margin-bottom: 20%;
+	font-size: 18px;
 }
 .red-laugh {
 	color: var(--red);
+}
+
+/* ---------------------------------Favs--------------------------------------------- */
+.subheading {
+	color: var(--green);
+	font-size: 30px;	
+	text-align: left;
+}
+.laugh-btn {
+	font-size: 12px;
+	padding: 10px;
 }
 /* ---------------------------------MEDIA QUERIES--------------------------------------------- */
 /* For desktop: */
@@ -430,26 +443,28 @@ justify-content: center;
 	/* .main-container {
 
 	} */
-
-	.info-container {
-		text-align: center;
-	}
 	.heading {
-		font-size: var(--medium-font-size);
+		margin-top: 1%;
+		font-size: var(--large-font-size);;
 	}
+	.subheading {
+		color: var(--green);
+		font-size: 40px;	
+		text-align: left;
+		padding-left: 10%;
+	}
+	
 	.jokes-container {
 		font-size: 18px;
 		padding-bottom: 1%;
 	}
-	footer {
+	/* footer {
 		padding: 60px 0px 10px;
 		position: unset;
-	}
-	/* .individual-joke {
-		display: flex;
-		flex-direction: row-reverse;
-		justify-content: space-between;
 	} */
+	.individual-joke {
+		padding: 0px 6%;
+	}
 	/* .laughs-container {
 		padding: 5%;
 	} */
