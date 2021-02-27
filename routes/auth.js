@@ -47,22 +47,10 @@ router.post('/login', passport.authenticate('local', {
   successFlash: 'You have logged in!'
 }));
 
-// router.post('/changepw', passport.authenticate('local', {
-//   successRedirect: '/profile',
-//   failureRedirect: '/profile',
-//   failureFlash: 'Invalid  password',
-//   successFlash: 'You have successfully changed your password!'
-// }));
-
 // POST route - modify password
 router.post('/changepw', function (req, res) {       
-  // console.log(req.user);
-  // console.log(req.body);
-
   const oldPassword = req.body.oldpassword;
   const updatedPassword = req.body.updatedpassword;
-  
-
   if (bcrypt.compareSync(oldPassword, req.user.password)) {
     // console.log('password is correct');
     db.user.findOne({

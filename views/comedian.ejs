@@ -3,7 +3,7 @@
 
 
 
-
+<!-- password1 -->
 <div class="main-container">
   <main>
     <h2 class="heading"><%= comedian.name  %></h2>
@@ -12,18 +12,23 @@
       <div class="individual-joke">
         <p> "<%= joke.content  %>"  %> </p>
         <div class="items-container">
+          <!-- % if (3>2) { %> -->
+            <!-- <h1>%= currentUser.name %></h1> -->
+          
           <div class="laughs-container">
             <form method="POST" action="/comedian/addjoke/<%= joke.id %> ">
               <input hidden type="text">
               <button type="submit">Add a laugh</button>
             </form>
           </div>
+          <!-- % } else { %> -->
           <div class="laughs-container">
             <form method="POST" action="/comedian/takejoke/<%= joke.id %> ">
               <input hidden type="text">
               <button type="submit">Remove a laugh</button>
             </form>
           </div>
+          <!-- % } %> -->
           <div class="number-container">
             <span class="laughs-number"> <%= joke.likes  %> <span class="red-laugh">laughs</span></span>
 
