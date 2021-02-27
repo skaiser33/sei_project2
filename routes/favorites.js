@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
         include: [db.joke]
       }).then((user) => {
         // console.log("--------", user.dataValues.jokes[0].dataValues.content)
-        res.render('favorites.ejs', {user: user, allTopics: topics, allComedians: comedians});
+        res.render('favorites.ejs', {user: user, allTopics: topics, allComedians: comedians, currentUser: req.user});
       // }).catch((error) => {
       //   console.log('Error in GET /', error)
       //   res.status(400).render('main/404')

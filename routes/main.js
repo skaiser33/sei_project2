@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     .then((comedians) => {
       db.topic.findAll({include: [db.joke]})
       .then((topics) => {
-        res.render('main', { allTopics: topics, allComedians: comedians })
+        res.render('main', { allTopics: topics, allComedians: comedians, currentUser: req.user})
       })
       .catch((error) => {
         console.log('Error in GET /', error)

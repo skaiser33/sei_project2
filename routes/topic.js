@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
         where: {id: req.query.topic},
         include: [db.joke]
       }).then((topic) => {
-        res.render('topic.ejs', {topic: topic, allTopics: topics, allComedians: comedians});
+        res.render('topic.ejs', {topic: topic, allTopics: topics, allComedians: comedians, currentUser: req.user});
       // }).catch((error) => {
       //   console.log('Error in GET /', error)
       //   res.status(400).render('main/404')
