@@ -6,7 +6,7 @@ const isLoggedIn = require('../middleware/isLoggedIn');
 
 let query
 
-//GET functionality for populating joke list including laugh button, laugh count
+//GET functionality for populating joke list by selected comedian
 router.get('/', (req, res) => {
   query = req.query
   db.comedian.findAll()
@@ -14,31 +14,17 @@ router.get('/', (req, res) => {
       db.topic.findAll()
       .then((topics) => {
         db.comedian.findOne({
-        where: {id: req.query.comedian},         //REMEMBER TO change to actual comedian id
+        where: {id: req.query.comedian},      
         include: [db.joke]
       }).then((comedian) => {
-
-          
-          // comedian.getJokes().then(function(jokes) {
-            //do something with pets here
-          // });
-        // });
-        // console.log("--------", user.dataValues.jokes[0].dataValues.content)
-        res.render('comedian.ejs', {comedian: comedian, allTopics: topics, allComedians: comedians});
+        res.render('comedian.ejs', {comedian: comedian, allTopics: topics, allComedians: comedians, currentUser: req.user});
       // }).catch((error) => {
       //   console.log('Error in GET /', error)
       //   res.status(400).render('main/404')
-
-
       })
     })  
   })
 });
-
-
-
-
-
 
 //=== ADD LAUGH BUTTON===//
 //POST functionality for adding a laugh
@@ -47,7 +33,7 @@ router.post('/addjoke/:id', async (req, res) => {
     const foundJoke = await db.joke.findByPk(req.params.id)
     foundJoke.likes = foundJoke.likes + 1
     foundJoke.save()
-    const foundUser = await db.user.findByPk(1)     //REMEMBER TO change to req.user.id
+    const foundUser = await db.user.findByPk(req.user.id)
     foundUser.addJoke(foundJoke)
     console.log('===========')
     console.log(foundUser.name, 'has faved', foundJoke.content)
@@ -64,7 +50,7 @@ router.post('/takejoke/:id', async (req, res) => {
     const foundJoke = await db.joke.findByPk(req.params.id)
     foundJoke.likes = foundJoke.likes - 1
     foundJoke.save()  
-    const foundUser = await db.user.findByPk(1)     //REMEMBER TO change to req.user.id
+    const foundUser = await db.user.findByPk(req.user.id)
     foundUser.removeJoke(foundJoke)
     console.log('===========')
     console.log(foundUser.name, 'has removed', foundJoke.content)
@@ -74,12 +60,5 @@ router.post('/takejoke/:id', async (req, res) => {
     res.redirect(`/comedian?comedian=${query.comedian}`)
   }	 
 })
-
-//POST functionality for adding a laugh
-
-//DELETE functionality for un-laugh
-
-
-
 
 module.exports = router;
