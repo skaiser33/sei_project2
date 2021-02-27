@@ -4,7 +4,7 @@
 <div class="main-container">
   <main>
     <h2 style="color: white;"><%= topic.name  %></h2>
-    <% topic.dataValues.jokes.forEach(function(joke) { %>
+    <% topic.dataValues.jokes.sort(function(a, b){return b.likes-a.likes}).forEach(function(joke) { %>
     <div class="jokes-container">
       <div class="individual-joke">
         <p> "<%= joke.content  %>" - <%= allComedians[joke.comedianId - 1].name  %> </p>

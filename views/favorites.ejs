@@ -3,7 +3,7 @@
 <div class="main-container">
   <main>
     <h2 style="color: white;"><%= user.name  %> Favorites</h2>
-    <% user.dataValues.jokes.forEach(function(joke) { %>
+    <% user.dataValues.jokes.sort(function(a, b){return b.likes-a.likes}).forEach(function(joke) { %>
     <div class="jokes-container">
       <div class="individual-joke">
         <p> "<%= joke.content  %>" - <%= allComedians[joke.comedianId - 1].name  %> </p>
