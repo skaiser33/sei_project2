@@ -46,7 +46,7 @@ button {
   padding: 5px;
 }
 
-/* ----------------sanwich button nav----------------- */
+/* ----------------sandwich button nav----------------- */
 
 .menu-btn {
 	display: flex;
@@ -78,6 +78,20 @@ button {
 	position: absolute;
 	content: '';
 }
+
+/* -------------hidding menu--------------------------- */
+
+.menu-btn {
+	overflow: hidden;
+}
+
+.menu-btn #myLinks{
+	display: none;
+}
+
+/* .nav-container .toggler:checked ~ .menu-btn_burger {
+	visibility: visible;
+} */
 
 /* --------top & buttom line in menu----------- */
 .menu-btn_burger::before {
