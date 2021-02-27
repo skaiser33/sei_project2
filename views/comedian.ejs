@@ -1,9 +1,6 @@
 <%- include('./partials/navbar.ejs') %>
 <% let isFavorite %>
 
-
-
-<!-- password1 -->
 <div class="main-container">
   <main>
     <h2 style="color: white;"><%= comedian.name  %></h2>
@@ -16,21 +13,21 @@
           <% if (currentUser.dataValues.jokes[i].id === joke.id) { %> 
             <% isFavorite = true; %> 
             <% break; %> 
-            <% }  %>    
-            <% }  %> 
+          <% }  %>    
+        <% }  %> 
         <div class="items-container">
           <% if (isFavorite === false) { %>
           <div class="laughs-container">
             <form method="POST" action="/comedian/addjoke/<%= joke.id %> ">
               <input hidden type="text">
-              <button type="submit">Add a laugh</button>
+              <button type="submit">Add A Laugh</button>
             </form>
           </div>
           <% } else { %>
           <div class="laughs-container">
             <form method="POST" action="/comedian/takejoke/<%= joke.id %> ">
               <input hidden type="text">
-              <button type="submit">Remove a laugh</button>
+              <button type="submit">Remove A Laugh</button>
             </form>
           </div>
           <% } %>

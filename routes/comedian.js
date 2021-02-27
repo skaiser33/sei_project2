@@ -15,10 +15,8 @@ router.get('/', (req, res) => {
       .then((topics) => {
         db.comedian.findOne({
         where: {id: req.query.comedian},      
-        include: [db.joke]
-        
-      }).then((comedian) => {
-        
+        include: [db.joke]        
+      }).then((comedian) => {        
           db.user.findOne({
           where: {id: req.user.id}, 
           include: [db.joke]
