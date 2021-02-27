@@ -5,7 +5,7 @@ menuBtn.addEventListener('click', () => {
   if (!menuOpen) {
 //add a class of open
     menuBtn.classList.add('open');
-    // menuBtn.textContent = 
+    // menuBtn.textContent =
     console.log(menuBtn)
     menuOpen = true;
   } else {

@@ -28,8 +28,8 @@
                   <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Comedians</a>
                     <div class="dropdown-content">
-                      <form method="POST" action="/comedian">
-                        <select name="comedian">
+                      <form method="GET" action="/comedian" id="comedianform">
+                        <select name="comedian" id="comedian" form="comedianform">
                           <% allComedians.forEach((x) => {  %>
                           <option value=<%= x.id %>><%= x.name %></option>
                           <% }) %>
@@ -41,8 +41,8 @@
                   <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Topics</a>
                     <div class="dropdown-content">
-                      <form method="POST" action="/topic">
-                        <select name="topic" id="topic">
+                      <form method="GET" action="/topic" id="topicform">
+                        <select name="topic" id="topic" form="topicform">
                           <% allTopics.forEach((idx) => {  %>
                           <option value=<%= idx.id %>><%= idx.name %></option>
                           <% }) %>
@@ -56,8 +56,7 @@
             </ul>
           </div>
         </div>
-      </div>
-  <% } %>
-    </ul>
-  </nav>
-</header>
+        <% } %>
+      </ul>
+    </nav>
+  </header>

@@ -1,12 +1,36 @@
 <%- include('./partials/navbar.ejs') %>
 
-<h2><%= comedian.name  %></h2>
-
-<% comedian.dataValues.jokes.forEach(function(joke) { %>
-  <div class="joke-container" >
-    <p> "<%= joke.content  %>"  %>  </p>
-    <p> Laughs: <%= joke.likes  %>  </p>
-  </div>  
-<%}) %> 
 
 
+
+
+<div class="main-container">
+  <main>
+    <h2 style="color: white;"><%= comedian.name  %></h2>
+    <% comedian.dataValues.jokes.sort(function(a, b){return b.likes-a.likes}).forEach(function(joke) { %>
+    <div class="jokes-container">
+      <div class="individual-joke">
+        <p> "<%= joke.content  %>"  %> </p>
+        <div class="items-container">
+          <div class="laughs-container">
+            <form method="POST" action="/comedian/addjoke/<%= joke.id %> ">
+              <input hidden type="text">
+              <button type="submit">Add a laugh</button>
+            </form>
+          </div>
+          <div class="laughs-container">
+            <form method="POST" action="/comedian/takejoke/<%= joke.id %> ">
+              <input hidden type="text">
+              <button type="submit">Remove a laugh</button>
+            </form>
+          </div>
+          <div class="number-container">
+            <span class="laughs-number">Laughs: <%= joke.likes  %> </span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <%}) %>
+  </main>
+</div>
