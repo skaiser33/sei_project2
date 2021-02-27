@@ -9,23 +9,20 @@
               <h1>Random Joke:</h1>
               <%const randomTopic = allTopics[Math.floor(Math.random() * allTopics.length)]%>
               <%const randomJoke = randomTopic.dataValues.jokes[Math.floor(Math.random() * randomTopic.jokes.length)]%>
-              <p>"<%= randomJoke.content  %> - <%= allComedians[randomJoke.comedianId - 1].name  %></p>  
+              <p> "<%= randomJoke.content  %>" - <a href="/comedian?comedian=<%= allComedians[randomJoke.comedianId - 1].id%>"><%= allComedians[randomJoke.comedianId - 1].name  %></a></p>
               <div class="items-container">
-
                 <div class="laughs-container">
                   <form method="POST" action="/main/addjoke/<%= randomJoke.id %>">
                     <input hidden type="text">
                     <button type="submit">Add a laugh</button>
                   </form>
                 </div>
-
                 <div class="laughs-container">
                   <form method="POST" action="/main/takejoke/<%= randomJoke.id %>">
                     <input hidden type="text">
                     <button type="submit">Remove a laugh</button>
                   </form>
                 </div>
-
                 <div class="number-container">
                   <span class="laughs-number">Laughs: <%= randomJoke.likes  %> </span>
                 </div>
