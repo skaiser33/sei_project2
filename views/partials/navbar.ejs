@@ -22,30 +22,25 @@
         <a href="javascript:void(0)" class="dropbtn">Comedians</a>
         <div class="dropdown-content">
           <form method="GET" action="/comedian" id="comedianform">
-            <select name="comedian" id="comedian" form="comedianform">
+            <select name="comedian" id="comedian" form="comedianform" onchange="this.form.submit();">
               <% allComedians.forEach((x) => {  %>
               <option value=<%= x.id %>><%= x.name %></option>
               <% }) %>
             </select>
-            <input type="submit" value="Submit">
+            <!-- <input type="submit" value="Submit"> -->
           </form>
         </div>
       </li>
       <li class="dropdown">
         <a href="javascript:void(0)" class="dropbtn">Topics</a>
         <div class="dropdown-content">
-<<<<<<< HEAD
-          
-          <form id="topicform" method="POST" action="/topic">
-=======
           <form method="GET" action="/topic" id="topicform">
->>>>>>> submain
-            <select name="topic" id="topic" form="topicform">
+            <select name="topic" id="topic" form="topicform" onchange="this.form.submit();">
               <% allTopics.forEach((idx) => {  %>
-              <option value=<%= idx.name %>><%= idx.name %></option>
+              <option value=<%= idx.id %>><%= idx.name %></option>
               <% }) %>
             </select>
-            <input type="submit" value="Submit" >
+            <!-- <input type="submit" value="Submit" > -->
           </form>
         </div>
       </li>
