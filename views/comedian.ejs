@@ -1,9 +1,6 @@
 <%- include('./partials/navbar.ejs') %>
+<% let isFavorite %>
 
-
-
-
-<!-- password1 -->
 <div class="main-container">
   <main>
     <h2 style="color: white;"><%= comedian.name  %></h2>
@@ -11,24 +8,29 @@
     <div class="jokes-container">
       <div class="individual-joke">
         <p> "<%= joke.content  %>"  %> </p>
+        <% isFavorite = false %> 
+        <% for (i=0; i < currentUser.dataValues.jokes.length; i++) { %> 
+          <% if (currentUser.dataValues.jokes[i].id === joke.id) { %> 
+            <% isFavorite = true; %> 
+            <% break; %> 
+          <% }  %>    
+        <% }  %> 
         <div class="items-container">
-          <!-- % if (3>2) { %> -->
-            <!-- <h1>%= currentUser.name %></h1> -->
-          
+          <% if (isFavorite === false) { %>
           <div class="laughs-container">
             <form method="POST" action="/comedian/addjoke/<%= joke.id %> ">
               <input hidden type="text">
-              <button type="submit">Add a laugh</button>
+              <button type="submit">Add A Laugh</button>
             </form>
           </div>
-          <!-- % } else { %> -->
+          <% } else { %>
           <div class="laughs-container">
             <form method="POST" action="/comedian/takejoke/<%= joke.id %> ">
               <input hidden type="text">
-              <button type="submit">Remove a laugh</button>
+              <button type="submit">Remove A Laugh</button>
             </form>
           </div>
-          <!-- % } %> -->
+          <% } %>
           <div class="number-container">
             <span class="laughs-number">Laughs: <%= joke.likes  %> </span>
           </div>
@@ -38,3 +40,4 @@
     <%}) %>
   </main>
 </div>
+<footer>You are logged in as <%= currentUser.name %> </footer>
