@@ -29,7 +29,7 @@ span {
 
 .items-container {
 	display: flex;
-}
+}                       		
 
 .number-container {
 	padding-left: 20px;
@@ -336,8 +336,8 @@ label {
 	.login-form {
 			margin-top: 5vh;
 			display: flex;
-		}
 	}
+}
 
 /* ---------------------------------signUp page---------------------------------------------- */
 
@@ -403,3 +403,61 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 } */
+
+
+
+
+/* ---------------------------------Homepage--------------------------------------------- */
+.heading {
+	color: #fff;
+	padding: 10% 5% 1%;
+	text-align: center;
+	font-family: var(--title-font-family);
+}
+.jokes-container {
+	padding: 5%;
+	font-family: 'Istok Web', sans-serif;
+}
+.info-container {
+	padding-bottom: 10px;
+}
+.red-laugh {
+	color: var(--red);
+}
+/* ---------------------------------MEDIA QUERIES--------------------------------------------- */
+/* For desktop: */
+@media only screen and (min-width: 768px) {
+	/* .main-container {
+
+	} */
+
+	.info-container {
+		text-align: center;
+	}
+	.heading {
+		font-size: var(--medium-font-size);
+	}
+	.jokes-container {
+		font-size: 18px;
+		padding-bottom: 1%;
+	}
+	footer {
+		padding: 60px 0px 10px;
+		position: unset;
+	}
+	/* .individual-joke {
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: space-between;
+	} */
+	/* .laughs-container {
+		padding: 5%;
+	} */
+	/* .remove-laugh {
+		font-size: 15px;
+		padding: 19px;
+	} */
+	/* .number-container {
+		padding-left: 20px;
+	} */
+}

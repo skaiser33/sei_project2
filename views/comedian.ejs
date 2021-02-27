@@ -6,7 +6,7 @@
 
 <div class="main-container">
   <main>
-    <h2 style="color: white;"><%= comedian.name  %></h2>
+    <h2 class="heading"><%= comedian.name  %></h2>
     <% comedian.dataValues.jokes.sort(function(a, b){return b.likes-a.likes}).forEach(function(joke) { %>
     <div class="jokes-container">
       <div class="individual-joke">
@@ -25,7 +25,7 @@
             </form>
           </div>
           <div class="number-container">
-            <span class="laughs-number">Laughs: <%= joke.likes  %> </span>
+            <span class="laughs-number"> <%= joke.likes  %> <span class="red-laugh">laughs</span></span>
 
           </div>
         </div>
