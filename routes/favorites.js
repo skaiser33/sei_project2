@@ -63,7 +63,7 @@ router.post('/takejoke/:id', async (req, res) => {
     foundUser.removeJoke(foundJoke)
     console.log('===========')
     console.log(foundUser.name, 'has removed', foundJoke.content)
-    res.redirect('/main') 
+    res.redirect('/favorites') 
   } catch (error) {
     req.flash('error', error.message)
     res.redirect('/favorites')
