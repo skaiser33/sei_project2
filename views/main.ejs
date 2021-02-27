@@ -1,6 +1,5 @@
 <!-- <h2>Main (Post-Login) </h2> -->
 
-<!-- THESE COULD ALSO BE HOVERABLE DROPDOWNS...refer to this: https://www.w3schools.com/howto/howto_js_dropdown.asp -->
 <%- include('./partials/navbar.ejs') %>
 <div class="main-container">
   <main>
@@ -9,39 +8,26 @@
               <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis nisi at metus dictum malesuada. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam ut bibendum mi, eget mollis massa. Nulla facilisi. Nullam id erat eu urna convallis aliquam vel vitae ipsum. Donec nec risus a diam congue efficitur sed et justo. Phasellus eu semper sapien, quis bibendum nibh.</p> -->
               <h1>Random Joke:</h1>
               <%const randomTopic = allTopics[Math.floor(Math.random() * allTopics.length)]%>
-              <p><%= randomTopic.dataValues.jokes[Math.floor(Math.random() * randomTopic.jokes.length)].content  %></p>  
-                <div class="items-container">
-                  <div class="laughs-container">
-                      <button>Add a laugh</button>
-                  </div>
-                  <div class="number-container">
-                      <span class="laughs-number">20</span>
-                      <span class="">laughs </span>
-                  </div>
+              <%const randomJoke = randomTopic.dataValues.jokes[Math.floor(Math.random() * randomTopic.jokes.length)]%>
+              <p>"<%= randomJoke.content  %> - <%= allComedians[randomJoke.comedianId - 1].name  %></p>  
+              <div class="items-container">
+                <div class="laughs-container">
+                  <form method="POST" action="/main/addjoke/<%= randomJoke.id %>">
+                    <input hidden type="text">
+                    <button type="submit">Add a laugh</button>
+                  </form>
                 </div>
+                <div class="laughs-container">
+                  <form method="POST" action="/main/takejoke/<%= randomJoke.id %>">
+                    <input hidden type="text">
+                    <button type="submit">Remove a laugh</button>
+                  </form>
+                </div>
+                <div class="number-container">
+                  <span class="laughs-number">Laughs: <%= randomJoke.likes  %> </span>
+                </div>
+              </div>
           </div>
       </div>
   </main>
 </div>
-
-
-
-<!-- <form method="POST" action="/comedian">
-  <label for="comedian">Choose a comedian:</label>
-  <select name="comedian" id="comedian">
-    <option value="placeholder1">placeholder1</option>
-    <option value="placeholder2">placeholder2</option>
-    <option value="placeholder3">placeholder3</option>
-  </select>
-  <input type="submit" value="Submit">
-</form>
-
-<form method="POST" action="/topic">
-  <label for="topic">Choose a topic:</label>
-  <select name="topic" id="topic">
-    <option value="placeholder1">placeholder1</option>
-    <option value="placeholder2">placeholder2</option>
-    <option value="placeholder3">placeholder3</option>
-  </select>
-  <input type="submit" value="Submit">
-</form>   -->

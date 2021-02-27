@@ -8,19 +8,15 @@ let query
 
 //GET functionality for populating joke list including comedian name, laugh button, laugh count
 router.get('/', (req, res) => {
-  // console.log(req.params.id)
-  // console.log(req.query)
   query = req.query
-
   db.comedian.findAll()
     .then((comedians) => {
       db.topic.findAll()
       .then((topics) => {
         db.topic.findOne({
-        where: {id: req.query.topic},         //REMEMBER TO change to actual topic id
+        where: {id: req.query.topic},
         include: [db.joke]
       }).then((topic) => {
-        // console.log("--------", user.dataValues.jokes[0].dataValues.content)
         res.render('topic.ejs', {topic: topic, allTopics: topics, allComedians: comedians});
       // }).catch((error) => {
       //   console.log('Error in GET /', error)
@@ -30,7 +26,6 @@ router.get('/', (req, res) => {
   })
 });
 
-
 //=== ADD LAUGH BUTTON===//
 //POST functionality for adding a laugh
 router.post('/addjoke/:id', async (req, res) => {
@@ -38,7 +33,7 @@ router.post('/addjoke/:id', async (req, res) => {
     const foundJoke = await db.joke.findByPk(req.params.id)
     foundJoke.likes = foundJoke.likes + 1
     foundJoke.save()
-    const foundUser = await db.user.findByPk(1)     //REMEMBER TO change to req.user.id
+    const foundUser = await db.user.findByPk(req.user.id)    
     foundUser.addJoke(foundJoke)
     console.log('===========')
     console.log(foundUser.name, 'has faved', foundJoke.content)
@@ -56,7 +51,7 @@ router.post('/takejoke/:id', async (req, res) => {
     const foundJoke = await db.joke.findByPk(req.params.id)
     foundJoke.likes = foundJoke.likes - 1
     foundJoke.save()  
-    const foundUser = await db.user.findByPk(1)     //REMEMBER TO change to req.user.id
+    const foundUser = await db.user.findByPk(req.user.id)
     foundUser.removeJoke(foundJoke)
     console.log('===========')
     console.log(foundUser.name, 'has removed', foundJoke.content)
