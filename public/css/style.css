@@ -46,6 +46,10 @@ button {
   padding: 5px;
 }
 
+header {
+	margin: 50px;
+}
+
 /* ----------------sandwich button nav----------------- */
 
 .menu-btn {
@@ -83,11 +87,23 @@ button {
 
 .menu-btn {
 	overflow: hidden;
+	display: block;
 }
-
 
 .menu-btn #myLinks{
 	display: none;
+}
+
+#toggle {
+	display: none;
+}
+
+#toggle:checked + #myLinks {
+	display: block;
+}
+
+.menu-btn open {
+	display: block;
 }
 
 /* .nav-container .toggler:checked ~ .menu-btn_burger {
