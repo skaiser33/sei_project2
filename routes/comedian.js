@@ -16,11 +16,20 @@ router.get('/', (req, res) => {
         db.comedian.findOne({
         where: {id: req.query.comedian},      
         include: [db.joke]
+        
       }).then((comedian) => {
-        res.render('comedian.ejs', {comedian: comedian, allTopics: topics, allComedians: comedians, currentUser: req.user});
+        
+          db.user.findOne({
+          where: {id: req.user.id}, 
+          include: [db.joke]
+          })
+        .then((currentUser) => {
+          res.render('comedian.ejs', {comedian: comedian, allTopics: topics, allComedians: comedians, currentUser: currentUser});
       // }).catch((error) => {
       //   console.log('Error in GET /', error)
       //   res.status(400).render('main/404')
+        })
+          
       })
     })  
   })
