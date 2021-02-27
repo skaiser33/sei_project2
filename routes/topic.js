@@ -4,14 +4,20 @@ const passport = require('../config/ppConfig')
 const db = require('../models');
 const isLoggedIn = require('../middleware/isLoggedIn');
 
+let query
+
 //GET functionality for populating joke list including comedian name, laugh button, laugh count
 router.get('/', (req, res) => {
+  // console.log(req.params.id)
+  // console.log(req.query)
+  query = req.query
+
   db.comedian.findAll()
     .then((comedians) => {
       db.topic.findAll()
       .then((topics) => {
         db.topic.findOne({
-        where: {id: 3},         //REMEMBER TO change to actual topic id
+        where: {id: req.query.topic},         //REMEMBER TO change to actual topic id
         include: [db.joke]
       }).then((topic) => {
         // console.log("--------", user.dataValues.jokes[0].dataValues.content)
@@ -36,10 +42,11 @@ router.post('/addjoke/:id', async (req, res) => {
     foundUser.addJoke(foundJoke)
     console.log('===========')
     console.log(foundUser.name, 'has faved', foundJoke.content)
-    res.redirect('/topic')
+    // res.redirect(`/topic/${req.query.topic}`)
+    res.redirect(`/topic?topic=${query.topic}`)
   } catch (error) {
     req.flash('error', error.message)
-    res.redirect('/topic')
+    res.redirect(`/topic?topic=${query.topic}`)
   }	 
 })
 
@@ -53,10 +60,10 @@ router.post('/takejoke/:id', async (req, res) => {
     foundUser.removeJoke(foundJoke)
     console.log('===========')
     console.log(foundUser.name, 'has removed', foundJoke.content)
-    res.redirect('/topic') 
+    res.redirect(`/topic?topic=${query.topic}`) 
   } catch (error) {
     req.flash('error', error.message)
-    res.redirect('/topic')
+    res.redirect(`/topic?topic=${query.topic}`)
   }	 
 })
 
