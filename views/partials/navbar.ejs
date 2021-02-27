@@ -34,13 +34,14 @@
       <li class="dropdown">
         <a href="javascript:void(0)" class="dropbtn">Topics</a>
         <div class="dropdown-content">
-          <form method="POST" action="/topic/ ">
-            <select name="topic" id="topic">
+          
+          <form id="topicform" method="POST" action="/topic">
+            <select name="topic" id="topic" form="topicform">
               <% allTopics.forEach((idx) => {  %>
-              <option value=<%= idx.id %>><%= idx.name %></option>
+              <option value=<%= idx.name %>><%= idx.name %></option>
               <% }) %>
             </select>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" >
           </form>
         </div>
       </li>

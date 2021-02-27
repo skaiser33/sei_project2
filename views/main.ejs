@@ -7,6 +7,9 @@
       <div class="jokes-container">
           <div class="individual-joke">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis nisi at metus dictum malesuada. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam ut bibendum mi, eget mollis massa. Nulla facilisi. Nullam id erat eu urna convallis aliquam vel vitae ipsum. Donec nec risus a diam congue efficitur sed et justo. Phasellus eu semper sapien, quis bibendum nibh.</p>
+              <h4>Random Joke:</h4>
+              <%const randomTopic = allTopics[Math.floor(Math.random() * allTopics.length)]%>
+              <p><%= randomTopic.dataValues.jokes[Math.floor(Math.random() * randomTopic.jokes.length)].content  %></p>  
                 <div class="items-container">
                   <div class="laughs-container">
                       <button>Add a laugh</button>

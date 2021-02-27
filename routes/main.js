@@ -10,7 +10,7 @@ const isLoggedIn = require('../middleware/isLoggedIn');
 router.get('/', (req, res) => {
   db.comedian.findAll()
     .then((comedians) => {
-      db.topic.findAll()
+      db.topic.findAll({include: [db.joke]})
       .then((topics) => {
         res.render('main', { allTopics: topics, allComedians: comedians })
       })
