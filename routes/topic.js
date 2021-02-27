@@ -17,11 +17,18 @@ router.get('/', (req, res) => {
         where: {id: req.query.topic},
         include: [db.joke]
       }).then((topic) => {
-        res.render('topic.ejs', {topic: topic, allTopics: topics, allComedians: comedians, currentUser: req.user});
+
+        db.user.findOne({
+          where: {id: req.user.id}, 
+          include: [db.joke]
+          })
+        .then((currentUser) => {
+        res.render('topic.ejs', {topic: topic, allTopics: topics, allComedians: comedians, currentUser: currentUser});
       // }).catch((error) => {
       //   console.log('Error in GET /', error)
       //   res.status(400).render('main/404')
-      })
+    })
+        })
     })  
   })
 });

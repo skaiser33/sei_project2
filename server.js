@@ -5,6 +5,7 @@ const session = require('express-session');
 const passport = require('./config/ppConfig');
 const flash = require('connect-flash');
 const isLoggedIn = require('./middleware/isLoggedIn');
+const ejsLint = require('ejs-lint');
 
 const app = express();
 

@@ -1,6 +1,5 @@
-<!-- <h2>Main (Post-Login) </h2> -->
-
 <%- include('./partials/navbar.ejs') %>
+<% let isFavorite %>
 <div class="main-container">
   <main>
       <div class="jokes-container">
@@ -9,20 +8,30 @@
               <h1>Random Joke:</h1>
               <%const randomTopic = allTopics[Math.floor(Math.random() * allTopics.length)]%>
               <%const randomJoke = randomTopic.dataValues.jokes[Math.floor(Math.random() * randomTopic.jokes.length)]%>
-              <p> “<%= randomJoke.content  %>” - <a href=“/comedian?comedian=<%= allComedians[randomJoke.comedianId - 1].id%>“><%= allComedians[randomJoke.comedianId - 1].name  %></a></p>
+              <p> "<%= randomJoke.content  %>" - <a href="/comedian?comedian=<%= allComedians[randomJoke.comedianId - 1].id%>"><%= allComedians[randomJoke.comedianId - 1].name  %></a></p>
+              <% isFavorite = false %>
+              <% for (i=0; i < currentUser.dataValues.jokes.length; i++) { %>
+                <% if (currentUser.dataValues.jokes[i].id === randomJoke.id) { %>
+                  <% isFavorite = true; %>
+                  <% break; %>
+                <% }  %>
+              <% }  %>
               <div class="items-container">
+                <% if (isFavorite === false) { %>
                 <div class="laughs-container">
                   <form method="POST" action="/main/addjoke/<%= randomJoke.id %>">
                     <input hidden type="text">
                     <button type="submit">Add a laugh</button>
                   </form>
                 </div>
+                <% } else { %>
                 <div class="laughs-container">
                   <form method="POST" action="/main/takejoke/<%= randomJoke.id %>">
                     <input hidden type="text">
                     <button type="submit">Remove a laugh</button>
                   </form>
                 </div>
+                <% } %>
                 <div class="number-container">
                   <span class="laughs-number">Laughs: <%= randomJoke.likes  %> </span>
                 </div>
@@ -31,3 +40,4 @@
       </div>
   </main>
 </div>
+<footer>You are logged in as <%= currentUser.name %> </footer>
