@@ -12,13 +12,19 @@ router.get('/', (req, res) => {
     .then((comedians) => {
       db.topic.findAll({include: [db.joke]})
       .then((topics) => {
-        res.render('main', { allTopics: topics, allComedians: comedians, currentUser: req.user})
+        db.user.findOne({
+          where: {id: req.user.id}, 
+          include: [db.joke]
+          })
+        .then((currentUser) => {
+        res.render('main', { allTopics: topics, allComedians: comedians, currentUser: currentUser})
       })
       .catch((error) => {
         console.log('Error in GET /', error)
         res.status(400).render('main/404')
       })
     })
+  })  
 })
 
 //=== ADD LAUGH BUTTON===//
