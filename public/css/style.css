@@ -574,7 +574,13 @@ main{
 .btn-delete-acct {
 	font-size: 12px;
 	padding: 10px;
+}  
+
+.back-to-profile-btn {
+  color:var(--green);
+  font-family: 'Istok Web', sans-serif;
 }
+
 /* ---------------------------------MEDIA QUERIES--------------------------------------------- */
 /* For desktop: */
 @media only screen and (min-width: 768px) {
