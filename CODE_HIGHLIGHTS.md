@@ -4,13 +4,16 @@
 
 ### TOP 3 LINES OF CODE (OUT OF CONTEXT!)
 
-Bernarda's method for saving the incremented / decremented laugh count to the database for each displayed joke
+Bernarda's method for saving the incremented / decremented laugh count to the database for each displayed joke:
+
 ```foundJoke.save()```
 
-Jacob's render method with a beast of an object to populate the dropdown menus and user in appropriate ejs (at the end of a long sequence of db queries)
+Jacob's render method with a beast of an object to populate the dropdown menus and user in appropriate ejs (at the end of a long sequence of db queries):
+
 ```res.render('main', { allTopics: topics, allComedians: comedians, currentUser: currentUser})```
 
-Steven's sort function of an array of jokes from an associated database.
+Steven's sort function of an array of jokes from an associated database:
+
 ```<% comedian.dataValues.jokes.sort(function(a, b){return b.likes-a.likes}).forEach(function(joke) { %>```
 
 
@@ -48,6 +51,7 @@ Steven's sort function of an array of jokes from an associated database.
 
 ### ADDING A LAUGH (USING ASYNC AWAIT IN A POST ROUTE)
 
+```
 router.post('/addjoke/:id', async (req, res) => {
   try {
     const foundJoke = await db.joke.findByPk(req.params.id)
@@ -64,9 +68,11 @@ router.post('/addjoke/:id', async (req, res) => {
     res.redirect(`/topic?topic=${query.topic}`)
   }	 
 })
+```
 
 ### POPULATING MULTIPLE DROPDOWN MENUS USING FINDALL
 
+```
 <li class="dropdown">
   <a href="javascript:void(0)" class="dropbtn">Comedians</a>
   <div class="dropdown-content">
@@ -79,3 +85,4 @@ router.post('/addjoke/:id', async (req, res) => {
       </select>
       <!-- <input type="submit" value="Submit"> -->
     </form>
+ ```   

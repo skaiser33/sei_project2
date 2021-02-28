@@ -19,7 +19,6 @@ router.post('/signup', (req, res) => {
     if (created) {
       passport.authenticate('local', {
         successRedirect: '/main',
-        successFlash: 'Account created and logged in'
       })(req, res);
     } else {
       req.flash('error', 'Email already exists');
@@ -39,7 +38,6 @@ router.post('/login', passport.authenticate('local', {
   successRedirect: '/main',
   failureRedirect: '/auth/login',
   failureFlash: 'Invalid username and/or password',
-  successFlash: 'You have logged in!'
 }));
 
 router.post('/changepw', function (req, res) {       
