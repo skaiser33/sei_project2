@@ -30,10 +30,11 @@ span {
 
 .items-container {
 	display: flex;
-}
+}                       		
 
 .number-container {
 	padding-left: 20px;
+	padding-top: 5px;
 }
 
 button {
@@ -422,15 +423,19 @@ label {
 
 .alert {
 	color: var(--red);
-	margin-top: 20px;
+	/* margin-top: 20px; */
+	margin: 10%;
+	font-size: 15px;
+	font-family: 'Istok Web', sans-serif;
+	text-align: center;
 }
 
 @media screen and (min-width: 850px) {
 	.login-form {
 			margin-top: 5vh;
 			display: flex;
-		}
 	}
+}
 
 /* ---------------------------------signUp page---------------------------------------------- */
 
@@ -459,9 +464,9 @@ input {
 		justify-content: center;
 		flex-direction: column;
 	}
-	input {
+	/* input {
 		margin-right: 20px;
-	}
+	} */
 }
 
 .signup-btn2 {
@@ -491,14 +496,159 @@ aside{
   padding: 5px 5%;
 }
 main{
-  /* grid-area: main;
-  display: flex;
-  flex-direction: row; */
-  /* margin: 5px; */
-  padding: 5px 6%;
+	
+    padding: 10px;
 }
-/* header, footer {
-display: flex;
-flex-direction: column;
-justify-content: center;
-} */
+
+
+
+
+
+/* ---------------------------------Homepage--------------------------------------------- */
+.heading {
+	margin-top: 10%;
+	padding: 10% 0% 1%;
+	text-align: center;
+	font-family: var(--title-font-family);
+	color: var(--red);
+	font-size: 45px;
+
+}
+
+.jokes-container {
+	padding: 5%;
+	font-family: 'Istok Web', sans-serif;
+}
+.info-container {
+	padding: 20px 0px;
+	text-align: center;
+	margin-bottom: 20%;
+	font-size: 18px;
+}
+.red-laugh {
+	color: var(--red);
+}
+
+/* ---------------------------------Favs--------------------------------------------- */
+.subheading {
+	color: var(--green);
+	font-size: 30px;	
+	text-align: left;
+}
+.laugh-btn {
+	font-size: 12px;
+	padding: 10px;
+}
+.acct {
+	text-align: center;
+}
+
+/* ---------------------------------Profile--------------------------------------------- */
+
+
+.acct-container {
+	font-family: var(--title-font-family);
+	text-align: center;
+}
+.pswd-container, .delete-acct-container {
+	font-family: 'Istok Web', sans-serif;
+	padding-top: 10px;
+}
+.btn-delete-acct:hover {
+	background-color: var(--red);
+}
+.pswd-input {
+	padding: 16px 18px;
+	border-radius: 10px;
+	
+}
+.btn-pswd {
+	border-radius: 16px;
+	border: none;
+	
+}
+.delete-acct-container {
+	padding: 20px;
+	text-align: center;
+}
+.btn-delete-acct {
+	font-size: 12px;
+	padding: 10px;
+}
+/* ---------------------------------MEDIA QUERIES--------------------------------------------- */
+/* For desktop: */
+@media only screen and (min-width: 768px) {
+	
+	.heading {
+		margin-top: 1%;
+		font-size: var(--large-font-size);;
+	}
+	.subheading {
+		color: var(--green);
+		font-size: 40px;	
+		text-align: left;
+		padding-left: 10%;
+	}
+	
+	.jokes-container {
+		font-size: 18px;
+		padding-bottom: 1%;
+	}
+	
+	.individual-joke {
+		padding: 0px 6%;
+	}
+	.acct {
+		font-size: 35px;
+		text-align: center;
+	}
+	.acct-container {
+		text-align: left
+	}
+	.acct-form {
+		display: grid;
+	}
+	.pswd-input {
+		background-color: white;
+		color: rgb(6 6 6);
+		padding: 16px 18px;
+		border-radius: 10px;
+		border: 3px solid var(--green);
+	}
+	.btn-pswd {
+		border-radius: 16px;
+		border: none;
+		font-size: 15px;
+	}
+	.btn-delete-acct {
+		padding: 14px;
+		font-size: 15px;
+	}
+	.delete-acct-container {
+		padding: 10% 5% 5%;
+		text-align: left;
+	}
+	.signUp {
+		display: grid;
+	}
+
+	.login-email, .login-pass {
+		border-radius: 10px;
+	}
+	.login-form {
+		display: grid;
+	}
+	.alert {
+		margin: 5%;
+		font-size: 18px;
+	}
+	.alert-error {
+		padding: 0 21%;
+	}
+	#delete-container{
+		padding: 0px;
+	}
+	#delete-subheading {
+		padding-left: 0px;
+	}
+}
