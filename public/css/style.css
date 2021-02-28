@@ -30,7 +30,7 @@ span {
 
 .items-container {
 	display: flex;
-}                       		
+}
 
 .number-container {
 	padding-left: 20px;
@@ -496,7 +496,7 @@ aside{
   padding: 5px 5%;
 }
 main{
-	
+
     padding: 10px;
 }
 
@@ -532,7 +532,7 @@ main{
 /* ---------------------------------Favs--------------------------------------------- */
 .subheading {
 	color: var(--green);
-	font-size: 30px;	
+	font-size: 30px;
 	text-align: left;
 }
 .laugh-btn {
@@ -560,12 +560,12 @@ main{
 .pswd-input {
 	padding: 16px 18px;
 	border-radius: 10px;
-	
+
 }
 .btn-pswd {
 	border-radius: 16px;
 	border: none;
-	
+
 }
 .delete-acct-container {
 	padding: 20px;
@@ -578,23 +578,23 @@ main{
 /* ---------------------------------MEDIA QUERIES--------------------------------------------- */
 /* For desktop: */
 @media only screen and (min-width: 768px) {
-	
+
 	.heading {
 		margin-top: 1%;
 		font-size: var(--large-font-size);;
 	}
 	.subheading {
 		color: var(--green);
-		font-size: 40px;	
+		font-size: 40px;
 		text-align: left;
 		padding-left: 10%;
 	}
-	
+
 	.jokes-container {
 		font-size: 18px;
 		padding-bottom: 1%;
 	}
-	
+
 	.individual-joke {
 		padding: 0px 6%;
 	}
@@ -645,6 +645,10 @@ main{
 	.alert-error {
 		padding: 0 21%;
 	}
+	.alert-success {
+		position: absolute;
+	}
+
 	#delete-container{
 		padding: 0px;
 	}
