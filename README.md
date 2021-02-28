@@ -1,7 +1,7 @@
 # GiggleBytes
 
 ## Deployed At:
-INSERT DEPLOYMENT LINK
+http://gigglebytes.herokuapp.com
 
 ## Description
 
@@ -19,20 +19,26 @@ In the future, we would like for users to be able to submit jokes that would be 
 Landing Page
 ![Landing Page](https://i.imgur.com/6FhWZT4.png)
 
+
 Signup Page
 ![Signup Page](https://i.imgur.com/nkW4wAr.png)
+
 
 Login Page
 ![Login Page](https://i.imgur.com/lDTNfOM.png)
 
+
 Comedian-Filtered Jokes Page
 ![Comedian-Filtered Jokes Page](https://i.imgur.com/1cgE4gk.png)
+
 
 Topic-Filtered Jokes Page
 ![Topic-Filtered Jokes Page](https://i.imgur.com/2VMaer4.png)
 
+
 Favorites Page
 ![Favorites Page](https://i.imgur.com/ZgnVvZB.png)
+
 
 Account Settings Page
 ![Account Settings Page](https://i.imgur.com/RhR7uHm.png)
@@ -75,35 +81,53 @@ Account Settings Page
 ## Wireframes
 
 ### Mobile
-Landing Page					     
+Landing Page		
+
 ![Landing Page](https://i.imgur.com/os92bvU.png)
 
+
 Signup Page
+
 ![Signup Page](https://i.imgur.com/U5G4Zdz.png)
 
+
 Login Page
+
 ![Login Page](https://i.imgur.com/kXQuTXz.png)
 
+
 Home Page (Post-Login)
+
 ![Home Page (Post-Login)](https://i.imgur.com/3xVae9q.png)
 
+
 User Favorites Page
+
 ![User Favorites Page](https://i.imgur.com/BsZzGQb.png)
  
 ### Desktop
 Landing Page
+
 ![Landing Page](https://i.imgur.com/NB7sf0S.png)
  
+
 Signup Page
+
 ![Signup Page](https://i.imgur.com/xYQlMuJ.png)
 
-Login Page 					
+
+Login Page 		
+
 ![Login Page](https://i.imgur.com/BDFXLj4.png)
 
+
 Jokes Displayed By Comedian Selection
+
 ![Jokes Displayed By Comedian Selection](https://i.imgur.com/7934URR.png)
 
+
 User Favorites Page
+
 ![User Favorites Page](https://i.imgur.com/nv4MpgF.png)
 
 
@@ -124,4 +148,4 @@ User Favorites Page
 - Users would be able to submit jokes that would be subject to a Wikipedia-style verification process. 
 - Users would have access to special feature tiers based on activity-level on the app. 
 - Jokes and comedians would link to video/audio content if available.
-- A lot more jokes and comedians.
+- A lot more jokes and comedians!
