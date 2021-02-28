@@ -16,23 +16,26 @@ In the future, we would like for users to be able to submit jokes that would be 
 
 ## Screenshots
 
-Login Page
-![Login Page]()
+Landing Page
+![Landing Page](https://i.imgur.com/6FhWZT4.png)
 
-Post-Login Main Page
-![Post-Login Main Page]()
+Signup Page
+![Signup Page](https://i.imgur.com/nkW4wAr.png)
+
+Login Page
+![Login Page](https://i.imgur.com/lDTNfOM.png)
 
 Comedian-Filtered Jokes Page
-![Comedian-Filtered Jokes Page]()
+![Comedian-Filtered Jokes Page](https://i.imgur.com/1cgE4gk.png)
 
 Topic-Filtered Jokes Page
-![Topic-Filtered Jokes Page]()
+![Topic-Filtered Jokes Page](https://i.imgur.com/2VMaer4.png)
 
 Favorites Page
-![Favorites Page]()
+![Favorites Page](https://i.imgur.com/ZgnVvZB.png)
 
-Account Up Page
-![Favorites Page]()
+Account Settings Page
+![Account Settings Page](https://i.imgur.com/RhR7uHm.png)
 
 ## Technologies Used
 - Javascript
@@ -116,8 +119,8 @@ User Favorites Page
 - We set ambitious goals with our modeling and associations in our proposal, and we were able to make everything work according to plan.
 - Although we had to rethink aspects of our styling once we reached full functionality, we stuck with the mobile first approach and learned a lot in the process.
 
-
 ## Future Goals
+- Refactor nested .then functions as await async (along with general refactoring of code that appears in similar iterations across multiple files).
 - Users would be able to submit jokes that would be subject to a Wikipedia-style verification process. 
 - Users would have access to special feature tiers based on activity-level on the app. 
 - Jokes and comedians would link to video/audio content if available.
