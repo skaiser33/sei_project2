@@ -1,4 +1,4 @@
-Just for reference, these are the model:create statements we used and the associations:
+For reference, these are the model:create statements we used and the associations:
 
 sequelize model:create --name comedian --attributes name:string,website:string
 
@@ -14,17 +14,17 @@ ASSOCIATIONS:
 INSIDE models/joke.js
 
 models.joke.belongsTo(models.comedian);
-models.joke.belongsToMany(models.user, {through: "userJokes"})
+models.joke.belongsToMany(models.user, {through: "usersJokes"})
 models.joke.belongsToMany(models.topic, {through: "jokesTopics"})
 
 INSIDE models/user.js
-models.user.belongsToMany(models.joke, {through: "userJokes"})
+models.user.belongsToMany(models.joke, {through: "usersJokes"})
 
 INSIDE models/topic.js
 models.topic.belongsToMany(models.joke, {through: "jokesTopics"})
 
 
-HERE IS THE BASIC PLAN FOR OUR ROUTES:
+HERE IS THE  PLAN FOR OUR ROUTES:
 main (post login) (get functionality for populating comedian dropdown) + (get functionality for populating topic dropdown) + (post functionality for selecting comedian) + (post functionality for selecting topic) [if these are part of the nav bar that appears on all post-login pages, this only needs to be written once]
 
 comedian (get functionality for populating joke list including laugh button, laugh count) + (post functionality for adding a laugh) + (delete functionality for un-laugh)

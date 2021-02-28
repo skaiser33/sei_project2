@@ -3,13 +3,9 @@ const db = require('../models');
 const bcrypt = require('bcrypt')
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    
+  up: async (queryInterface, Sequelize) => {   
     await db.sequelize.sync({force: true});
-    console.log('All models synced');
-
-    await queryInterface.bulkDelete('comedians', null, {truncate: true, cascade: true, restartIdentity: true});
-    
+    await queryInterface.bulkDelete('comedians', null, {truncate: true, cascade: true, restartIdentity: true});    
     const bulkComedians = await queryInterface.bulkInsert('comedians', [
       { name: 'Ellen DeGeneres',
       website: 'https://www.ellentube.com/',
@@ -42,11 +38,8 @@ module.exports = {
       updatedAt: new Date()
       }
     ], { returning: true });
-    
-    console.log(bulkComedians);
 
     await queryInterface.bulkDelete('jokes', null, {truncate: true, cascade: true, restartIdentity: true});
-
     const bulkJokes = await queryInterface.bulkInsert('jokes', [
       { content: `My grandmother started walking five miles a day when she was sixty. She's ninety-seven now, and we don't know where the heck she is.`,
       likes: 37,
@@ -248,8 +241,6 @@ module.exports = {
       }
       ], { returning: true });
 
-    console.log(bulkJokes);
-
     await queryInterface.bulkDelete('users', null, {truncate: true, cascade: true, restartIdentity: true});
 
     const bulkUsers = await queryInterface.bulkInsert('users', [
@@ -273,10 +264,7 @@ module.exports = {
       }
       ], { returning: true });
 
-    console.log(bulkUsers);
-
     await queryInterface.bulkDelete('topics', null, {truncate: true, cascade: true, restartIdentity: true});
-
     const bulkTopics = await queryInterface.bulkInsert('topics', [
       { name: 'Age',
         createdAt: new Date(),
@@ -388,10 +376,7 @@ module.exports = {
       }
     ], { returning: true });
 
-    console.log(bulkTopics);
-
     await queryInterface.bulkDelete('usersJokes', null, {truncate: true, cascade: true, restartIdentity: true});
-
     const bulkUsersJokes = await queryInterface.bulkInsert('usersJokes', [
       { userId: 1,
         jokeId: 2,
@@ -440,10 +425,7 @@ module.exports = {
       }
     ], { returning: true });
 
-    console.log(bulkUsersJokes);
-
     await queryInterface.bulkDelete('jokesTopics', null, {truncate: true, cascade: true, restartIdentity: true});
-
     const bulkJokesTopics = await queryInterface.bulkInsert('jokesTopics', [
       { jokeId: 1,
         topicId: 1,
@@ -676,10 +658,7 @@ module.exports = {
         updatedAt: new Date()
       },
     ], { returning: true });
-
-    console.log(bulkJokesTopics);
   },
-
 
   down: function (queryInterface, Sequelize) {
     return queryInterface.bulkDelete('comedians', null, {})
