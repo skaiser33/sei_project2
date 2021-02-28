@@ -361,6 +361,11 @@ input {
 	margin-bottom: 15px;
 }
 
+.sign-up-submit {
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (min-width: 850px) {
 	.signup-container {
 		align-items: center;
@@ -385,6 +390,7 @@ footer {
 	text-align: center;
 	background-color: var(--green);
 	width: 100vw;
+  padding-top: 5px;
 }
 
 aside{
@@ -392,13 +398,13 @@ aside{
   padding: 5px 5%;
 }
 main{
-    padding: 10px;
+  padding: 10px;
+  padding-bottom: 50px;
 }
 
 /* ---------------------------------Homepage--------------------------------------------- */
 .heading {
-	margin-top: 10%;
-	padding: 10% 0% 1%;
+	padding: 5% 0% 1%;
 	text-align: center;
 	font-family: var(--title-font-family);
 	color: var(--red);
@@ -410,7 +416,6 @@ main{
 	font-family: 'Istok Web', sans-serif;
 }
 .info-container {
-	padding: 20px 0px;
 	text-align: center;
 	margin-bottom: 20%;
 	font-size: 18px;
@@ -486,7 +491,7 @@ main{
 		color: var(--green);
 		font-size: 40px;
 		text-align: left;
-		padding-left: 10%;
+		/* padding-left: 10%; */
 	}
 
 	.jokes-container {
