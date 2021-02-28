@@ -12,13 +12,13 @@
           <%const randomTopic = allTopics[Math.floor(Math.random() * allTopics.length)]%>
           <%const randomJoke = randomTopic.dataValues.jokes[Math.floor(Math.random() * randomTopic.jokes.length)]%>
           <p> "<%= randomJoke.content  %>" - <a href="/comedian?comedian=<%= allComedians[randomJoke.comedianId - 1].id%>"><%= allComedians[randomJoke.comedianId - 1].name  %></a></p>
-          <% isFavorite = false %> 
-              <% for (i=0; i < currentUser.dataValues.jokes.length; i++) { %> 
-                <% if (currentUser.dataValues.jokes[i].id === randomJoke.id) { %> 
-                  <% isFavorite = true; %> 
-                  <% break; %> 
-                <% }  %>    
-          <% }  %> 
+          <% isFavorite = false %>
+              <% for (i=0; i < currentUser.dataValues.jokes.length; i++) { %>
+                <% if (currentUser.dataValues.jokes[i].id === randomJoke.id) { %>
+                  <% isFavorite = true; %>
+                  <% break; %>
+                <% }  %>
+          <% }  %>
           <div class="items-container">
             <% if (isFavorite === false) { %>
             <div class="laughs-container">
@@ -38,10 +38,10 @@
             <div class="number-container">
               <span class="laughs-number"> <%= randomJoke.likes  %> <span class="red-laugh">laughs</span></span>
             </div>
-          </div>     
+          </div>
         </div>
-          
-         
+
+
       </div>
   </main>
 </div>

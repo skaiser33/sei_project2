@@ -1,12 +1,10 @@
 const menuBtn = document.querySelector('.menu-btn');
 let menuOpen = false;
 menuBtn.addEventListener('click', () => {
-  //if the menuBtn is clicked
   if (!menuOpen) {
-//add a class of open
     menuBtn.classList.add('open');
-    // menuBtn.textContent =
-    console.log(menuBtn)
+    target = document.querySelector('.menu-btn_burger')
+    console.log(target)
     menuOpen = true;
   } else {
     menuBtn.classList.remove('open');

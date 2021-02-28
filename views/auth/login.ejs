@@ -1,15 +1,15 @@
 <!-- %- include('../partials/landingnavbar.ejs') %> -->
-<div class="signup-btn">
-  <li><a class="landing-btn" href="/auth/signup">Signup</a></li>
+<div>
+  <%- include('../partials/signup-btn.ejs') %>
 </div>
 <div class="signup-container">
   <h1 class="login-title">LogIn</h1>
   <form class="login-form" action="/auth/login" method="POST">
     <div class="email">
-      <input placeholder="Email" class="login-email" id="auth-email" type="email" name="email">
+      <input placeholder="Enter Email" class="login-email" id="auth-email" type="email" name="email">
     </div>
     <div class="password">
-      <input placeholder="Password" class="login-pass" id="auth-password" type="password" name="password">
+      <input placeholder="Enter Password" class="login-pass" id="auth-password" type="password" name="password">
     </div>
     <input class="login-submit-btn" type="submit" value="Submit">
   </form>
