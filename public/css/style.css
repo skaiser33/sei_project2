@@ -547,4 +547,10 @@ main{
 	.alert-error {
 		padding: 0 21%;
 	}
+	#delete-container{
+		padding: 0px;
+	}
+	#delete-subheading {
+		padding-left: 0px;
+	}
 }
