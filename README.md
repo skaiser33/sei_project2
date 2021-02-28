@@ -7,9 +7,9 @@ http://gigglebytes.herokuapp.com
 
 GiggleBytes allows logged-in users to view a list of jokes by a particular comedian or topic (chosen from  dropdown menus in the navigation bar), and then "add a laugh" to their favorite jokes. A random joke is displayed immediately after the user logs in.
 
-Joke lists will be displayed in descending order based on the number of users who have added a laugh to each joke. The user's favorite jokes will also be displayed on a personal favorites page, and the user will have the ability to unlike and remove jokes from this page. 
+Joke lists are displayed in descending order based on the number of users who have added a laugh to each joke. The user's favorite jokes are also  displayed on a personal favorites page, and the user has the ability to unlike and remove jokes from this page. 
 
-The app will feature full user authentication and will allow for the user to create an account for a unique email, login securely, update passwords, and delete an account. 
+The app features full user authentication and allows for the user to create an account for a unique email, login securely, update passwords, and delete an account. 
 
 In the future, we would like for users to be able to submit jokes that would be subject to a Wikipedia-style verification process. Users would also have access to special feature tiers based on activity-level on the app. We would also like the jokes to link to video content if available.
 
@@ -132,7 +132,7 @@ User Favorites Page
 
 
 ## Major Hurdles
-- Successfully seeding a relatively large database with multiple models and varied associations. While this went relatively smoothly, it was still a challenge to setup.
+- Seeding a relatively large database with multiple models and varied associations. While this went relatively smoothly, it was still a challenge to setup.
 - Finding the ideal pace for pull requests in a collaboration with a relatively quick turnaround on the project. The learning curve definitely took up a substantial portion of the total project time. 
 - Variable scoping and object definitions for routes/EJS. 
 - Ideal navbar styling for responsive design. Our initial mobile navbar proved to be unfeasible for a responsive design and we had to re-think it.
@@ -144,7 +144,7 @@ User Favorites Page
 - Although we had to rethink aspects of our styling once we reached full functionality, we stuck with the mobile first approach and learned a lot in the process.
 
 ## Future Goals
-- Refactor nested .then functions as await async (along with general refactoring of code that appears in similar iterations across multiple files).
+- Refactor nested .then functions as async await (along with general refactoring of code that appears in similar iterations across multiple files).
 - Users would be able to submit jokes that would be subject to a Wikipedia-style verification process. 
 - Users would have access to special feature tiers based on activity-level on the app. 
 - Jokes and comedians would link to video/audio content if available.

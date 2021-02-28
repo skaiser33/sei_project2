@@ -4,18 +4,18 @@
 
 ### TOP 3 LINES OF CODE (OUT OF CONTEXT!)
 
-Bernarda's method for saving the incremented / decremented laugh count to the database for each displayed joke:
-
-```foundJoke.save()```
-
-Jacob's render method with a beast of an object to populate the dropdown menus and user in appropriate ejs (at the end of a long sequence of db queries):
-
-```res.render('main', { allTopics: topics, allComedians: comedians, currentUser: currentUser})```
 
 Steven's sort function of an array of jokes from an associated database:
 
 ```<% comedian.dataValues.jokes.sort(function(a, b){return b.likes-a.likes}).forEach(function(joke) { %>```
 
+Bernarda's method for saving the incremented / decremented laugh count to the database for each displayed joke:
+
+```foundJoke.save()```
+
+Jacob's render method with a beast of an object to populate the dropdown menus and user in appropriate ejs file (at the end of a long sequence of db queries):
+
+```res.render('main', { allTopics: topics, allComedians: comedians, currentUser: currentUser })```
 
 
 ### TO DISPLAY JOKES FILTERED BY COMEDIAN 
@@ -59,9 +59,6 @@ router.post('/addjoke/:id', async (req, res) => {
     foundJoke.save()
     const foundUser = await db.user.findByPk(req.user.id)    
     foundUser.addJoke(foundJoke)
-    console.log('===========')
-    console.log(foundUser.name, 'has faved', foundJoke.content)
-    // res.redirect(`/topic/${req.query.topic}`)
     res.redirect(`/topic?topic=${query.topic}`)
   } catch (error) {
     req.flash('error', error.message)
