@@ -331,7 +331,11 @@ label {
 
 .alert {
 	color: var(--red);
-	margin-top: 20px;
+	/* margin-top: 20px; */
+	margin: 10%;
+	font-size: 15px;
+	font-family: 'Istok Web', sans-serif;
+	text-align: center;
 }
 
 @media screen and (min-width: 850px) {
@@ -368,9 +372,9 @@ input {
 		justify-content: center;
 		flex-direction: column;
 	}
-	input {
+	/* input {
 		margin-right: 20px;
-	}
+	} */
 }
 
 /* -------------------------------------------------------------------------------------------- */
@@ -405,11 +409,11 @@ main{
 /* ---------------------------------Homepage--------------------------------------------- */
 .heading {
 	margin-top: 10%;
-	padding: 10% 5% 1%;
+	padding: 10% 0% 1%;
 	text-align: center;
 	font-family: var(--title-font-family);
 	color: var(--red);
-	font-size: 50px;
+	font-size: 45px;
 
 }
 
@@ -437,12 +441,46 @@ main{
 	font-size: 12px;
 	padding: 10px;
 }
+.acct {
+	text-align: center;
+}
+
+/* ---------------------------------Profile--------------------------------------------- */
+
+
+.acct-container {
+	font-family: var(--title-font-family);
+	text-align: center;
+}
+.pswd-container, .delete-acct-container {
+	font-family: 'Istok Web', sans-serif;
+	padding-top: 10px;
+}
+.btn-delete-acct:hover {
+	background-color: var(--red);
+}
+.pswd-input {
+	padding: 16px 18px;
+	border-radius: 10px;
+	
+}
+.btn-pswd {
+	border-radius: 16px;
+	border: none;
+	
+}
+.delete-acct-container {
+	padding: 20px;
+	text-align: center;
+}
+.btn-delete-acct {
+	font-size: 12px;
+	padding: 10px;
+}
 /* ---------------------------------MEDIA QUERIES--------------------------------------------- */
 /* For desktop: */
 @media only screen and (min-width: 768px) {
-	/* .main-container {
-
-	} */
+	
 	.heading {
 		margin-top: 1%;
 		font-size: var(--large-font-size);;
@@ -458,21 +496,55 @@ main{
 		font-size: 18px;
 		padding-bottom: 1%;
 	}
-	/* footer {
-		padding: 60px 0px 10px;
-		position: unset;
-	} */
+	
 	.individual-joke {
 		padding: 0px 6%;
 	}
-	/* .laughs-container {
-		padding: 5%;
-	} */
-	/* .remove-laugh {
+	.acct {
+		font-size: 35px;
+		text-align: center;
+	}
+	.acct-container {
+		text-align: left
+	}
+	.acct-form {
+		display: grid;
+	}
+	.pswd-input {
+		background-color: white;
+		color: rgb(6 6 6);
+		padding: 16px 18px;
+		border-radius: 10px;
+		border: 3px solid var(--green);
+	}
+	.btn-pswd {
+		border-radius: 16px;
+		border: none;
 		font-size: 15px;
-		padding: 19px;
-	} */
-	/* .number-container {
-		padding-left: 20px;
-	} */
+	}
+	.btn-delete-acct {
+		padding: 14px;
+		font-size: 15px;
+	}
+	.delete-acct-container {
+		padding: 10% 5% 5%;
+		text-align: left;
+	}
+	.signUp {
+		display: grid;
+	}
+
+	.login-email, .login-pass {
+		border-radius: 10px;
+	}
+	.login-form {
+		display: grid;
+	}
+	.alert {
+		margin: 5%;
+		font-size: 18px;
+	}
+	.alert-error {
+		padding: 0 21%;
+	}
 }
