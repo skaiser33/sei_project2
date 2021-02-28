@@ -2,6 +2,11 @@
 
 ### Here are a few of our favorite code snippets. Some of them felt like coding interview questions!
 
+### TOP 3 LINES OF CODE (OUT OF CONTEXT!)
+<% comedian.dataValues.jokes.sort(function(a, b){return b.likes-a.likes}).forEach(function(joke) { %>
+
+
+
 ### TO DISPLAY JOKES FILTERED BY COMEDIAN 
     <% comedian.dataValues.jokes.sort(function(a, b){return b.likes-a.likes}).forEach(function(joke) { %>
     <div class="jokes-container">
