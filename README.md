@@ -105,10 +105,16 @@ User Favorites Page
 
 
 ## Major Hurdles
-- The logistics of arranging words from title to generate gifs without "weak" words (ie: the, a, etc) or punctuation. After a "focus group", I decided that my original strategy of simply eliminating "weak" words using the replace method made it too difficult for the player to discern the title using just gifs. I ended up restructuring the functionality to a large degree using the split method followed by tests for equality of "weak" words / punctuation using replace. 
-- Responsive styling depending on number of gifs
-- Creating arrays from lists...had surprising difficulty creating CSV files in the proper format with comma separated values (it's in the name!) and quotes around strings
-- Using global variables across multiple js files. Since this didn't impact functionality beyond a possible impact on speed, I decided to relegate this to a future goal and focus on other functionality goals.
+- Successfully seeding a relatively large database with multiple models and varied associations. While this went relatively smoothly, it was still a challenge to setup.
+- Finding the ideal pace for pull requests in a collaboration with a relatively quick turnaround on the project. The learning curve definitely took up a substantial portion of the total project time. 
+- Variable scoping and object definitions for routes/EJS. 
+- Ideal navbar styling for responsive design. Our initial mobile navbar proved to be unfeasible for a responsive design and we had to re-think it.
+- Retrieving a value from a select element (dropdown menu). Although we were successful in the end, it took a lot of brainpower and man-hours to use dropdown menus to feed our routes.
+
+## Major Victories
+- In the span of a week, three strangers became a full stack development team. 
+- We set ambitious goals with our modeling and associations in our proposal, and we were able to make everything work according to plan.
+- Although we had to rethink aspects of our styling once we reached full functionality, we stuck with the mobile first approach and learned a lot in the process.
 
 
 ## Future Goals
