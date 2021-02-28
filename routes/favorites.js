@@ -15,8 +15,6 @@ router.get('/', (req, res) => {
       include: [db.joke]
       }).then((user) => {
         res.render('favorites.ejs', {user: user, allTopics: topics, allComedians: comedians, currentUser: req.user});
-    // }).catch((error) => {
-    //   res.status(400).render('main/404')
       })
     })  
   })

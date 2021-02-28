@@ -22,8 +22,6 @@ router.get('/', (req, res) => {
           include: [db.joke]
         }).then((currentUser) => {
           res.render('topic.ejs', {topic: topic, allTopics: topics, allComedians: comedians, currentUser: currentUser});
-      // }).catch((error) => {
-      //   res.status(400).render('main/404')
         })
       })
     })  
