@@ -48,11 +48,12 @@ button {
 }
 
 header {
-	margin: 50px;
+	margin: 20px;
 }
 
-/* ----------------sandwich button nav----------------- */
 
+/* ----------------sandwich button nav----------------- */
+/*
 .menu-btn {
 	display: flex;
 	flex-direction: column;
@@ -82,7 +83,7 @@ header {
 	border-radius: 5px;
 	position: absolute;
 	content: '';
-}
+} */
 
 /* -------------hidding menu--------------------------- */
 
@@ -139,13 +140,61 @@ header {
 /* ---------------- NAVBAR ---------------------*/
 
 .nav-container {
-	margin-bottom: 200px;
-	margin-left: 100px;
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+}
+
+#myLinks {
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	padding-top: 7px;
+	font-weight: 600;
+	font-family: ‘Istok Web’, sans-serif;
+}
+
+.end-nav {
+	/* bottom: 20px; */
+		top: 8px;
+    display: flex;
+    position: absolute;
+		/* text-transform: uppercase; */
+	 	letter-spacing: 2px;
+		font-weight: 600;
+}
+
+.end-nav a {
+		color: var(--green);
+}
+
+.end-nav a:hover {
+	color: #fff;
+}
+
+@media screen and (min-width: 850px) {
+	.end-nav {
+		top: 30px;
+		right: 75px;
+		letter-spacing: none;
+		text-transform: none;
+		font-weight: none;
+	}
+	#myLinks {
+		align-items: center;
+		justify-content: left;
+		display: flex;
+		margin-left: 70px;
+	}
+	a {
+		margin-right: 25px;
+	}
 }
 
 a {
 	color: #fff;
 }
+
 
 select {
 	display: inline-block;
@@ -177,7 +226,7 @@ li {
 li a, .dropbtn {
   display: inline-block;
   text-align: center;
-  padding: 14px 16px;
+  padding: 5px 8px;
   text-decoration: none;
 }
 
@@ -209,16 +258,39 @@ li.dropdown {
 }
 
 /* --------------------landing page------------------------------------ */
+
+.welcome-container {
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .landing-container {
 display: flex;
 align-items: center;
 margin-top: 15vh;
 }
 
+@media screen and (min-width: 850px) {
+	.welcome-container {
+		width: 100vw;
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+
 .landing-title {
   color: var(--red);
   font-family: var(--title-font-family);
-	font-size: var(--large-font-size);
+	font-size: 50px;
+}
+
+@media screen and (min-width: 850px) {
+	.landing-title {
+		font-size: 120px;
+	}
 }
 
 span {
@@ -232,18 +304,14 @@ h1 {
   font-family: var(--title-font-family);
 }
 
-@media screen and (min-width: 850px) {
-	.landing-title {
-		font-size: 120px;
-	}
-}
-
 .landing-p {
   color: #fff;
   font-size: var(--small-font-size);
   font-family: 'Istok Web', sans-serif;
   letter-spacing: 3px;
   margin: 0;
+	width: 90vw;
+  align-content: left;
 }
 
 .landing-p2{
@@ -259,6 +327,13 @@ h1 {
 @media screen and (min-width: 850px) {
 	.landing-p, .landing-p2 {
 		font-size: var(--medium-font-size);
+	}
+	.landing-p {
+		color: #fff;
+	  font-size: var(--medium-font-size);
+		margin-top: 0;
+	  font-family: 'Istok Web', sans-serif;
+		width: 40vw;
 	}
 }
 
@@ -389,17 +464,23 @@ input {
 	}
 }
 
+.signup-btn2 {
+	color: #fff;
+	font-family: 'Istok Web', sans-serif;
+}
+
 /* -------------------------------------------------------------------------------------------- */
 
 
 
 footer {
   bottom: 0;
-	position: absolute;
-	width: 100%;
+	position: fixed;
 	color: #fff;
 	height: 1.5rem;
 	text-align: center;
+	background-color: var(--green);
+	width: 100vw;
 }
 
 aside{
