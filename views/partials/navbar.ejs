@@ -10,6 +10,7 @@
             <div class="dropdown-content">
               <form method="GET" action="/comedian" id="comedianform">
                 <select name="comedian" id="comedian" form="comedianform" onchange="this.form.submit();">
+                  <option disabled selected value> -- Pick A Comedian -- </option>
                   <% allComedians.forEach((x)=> { %>
                   <option value=<%=x.id %>><%= x.name %></option>
                   <% }) %>
@@ -22,6 +23,7 @@
             <div class="dropdown-content">
               <form method="GET" action="/topic" id="topicform">
                 <select name="topic" id="topic" form="topicform" onchange="this.form.submit();">
+                  <option disabled selected value> -- Pick A Topic -- </option>
                   <% allTopics.forEach((idx)=> { %>
                   <option value=<%=idx.id %>><%= idx.name %></option>
                   <% }) %>
