@@ -52,94 +52,7 @@ header {
 	margin: 20px;
 }
 
-
-/* ----------------sandwich button nav----------------- */
-/*
-.menu-btn {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	width: 80px;
-	height: 80px;
-	cursor: pointer;
-	transition: all .5s ease-in-out;
-}
-
-.menu-btn_burger {
-	width: 50px;
-	height: 6px;
-	background-color: #fff;
-	transition: all .5s ease-in-out;
-	border-radius: 5px;
-}
-
-.menu-btn_burger::before,
-.menu-btn_burger::after {
-	width: 200px;
-	height: 6px;
-	background-color: #fff;
-	transition: all .5s ease-in-out;
-	border-radius: 5px;
-	position: absolute;
-	content: '';
-} */
-
-/* -------------hidding menu--------------------------- */
-
-/* .menu-btn {
-	overflow: hidden;
-	display: block;
-}
-
-.menu-btn #myLinks{
-	display: none;
-}
-
-#toggle {
-	display: none;
-}
-
-#toggle:checked + #myLinks {
-	display: block;
-}
-
-.menu-btn open {
-	display: block;
-} */
-
-/* .nav-container .toggler:checked ~ .menu-btn_burger {
-	visibility: visible;
-} */
-
-/* --------top & buttom line in menu----------- */
-/* .menu-btn_burger::before {
-	transform: translateY(-15px);
-}
-
-.menu-btn_burger::after {
-	transform: translateY(15px);
-}
-
-/* ----------animation of hamburger symbol------------- */
-/* .menu-btn.open .menu-btn_burger {
-	background: transparent;
-	box-shadow: none;
-	transform: translateX(-50px);
-}
-
-.menu-btn.open .menu-btn_burger::before {
-	transform: rotate(45deg) translate(35px, -35px);
-}
-
-.menu-btn.open .menu-btn_burger::after {
-	transform: rotate(-45deg) translate(35px, 35px);
-} */
-
-
 /* ---------------- NAVBAR ---------------------*/
-
 .nav-container {
 	display: flex;
 	flex-direction: column;
@@ -156,17 +69,15 @@ header {
 }
 
 .end-nav {
-	/* bottom: 20px; */
-		top: 8px;
-    display: flex;
-    position: absolute;
-		/* text-transform: uppercase; */
-	 	letter-spacing: 2px;
-		font-weight: 600;
+  top: 8px;
+  display: flex;
+  position: absolute;
+  letter-spacing: 2px;
+  font-weight: 600;
 }
 
 .end-nav a {
-		color: var(--green);
+	color: var(--green);
 }
 
 .end-nav a:hover {
@@ -195,7 +106,6 @@ header {
 a {
 	color: #fff;
 }
-
 
 select {
 	display: inline-block;
@@ -259,7 +169,6 @@ li.dropdown {
 }
 
 /* --------------------landing page------------------------------------ */
-
 .welcome-container {
 	width: 100vw;
 	display: flex;
@@ -280,7 +189,6 @@ margin-top: 15vh;
 		flex-direction: column;
 	}
 }
-
 
 .landing-title {
   color: var(--red);
@@ -370,7 +278,6 @@ h1 {
 }
 
 /* -----------------------------logIn page-------------------------------------------------- */
-
 .login-title {
 	margin-top: 10vh;
 	margin-bottom: 15px;
@@ -423,7 +330,6 @@ label {
 
 .alert {
 	color: var(--red);
-	/* margin-top: 20px; */
 	margin: 10%;
 	font-size: 15px;
 	font-family: 'Istok Web', sans-serif;
@@ -438,7 +344,6 @@ label {
 }
 
 /* ---------------------------------signUp page---------------------------------------------- */
-
 .signup-container {
 	display: flex;
 	flex-direction: column;
@@ -464,9 +369,6 @@ input {
 		justify-content: center;
 		flex-direction: column;
 	}
-	/* input {
-		margin-right: 20px;
-	} */
 }
 
 .signup-btn2 {
@@ -475,9 +377,6 @@ input {
 }
 
 /* -------------------------------------------------------------------------------------------- */
-
-
-
 footer {
   bottom: 0;
 	position: fixed;
@@ -489,20 +388,12 @@ footer {
 }
 
 aside{
-  /* grid-area: aside;
-  display: flex;
-  flex-direction: row; */
   margin: 25px 0;
   padding: 5px 5%;
 }
 main{
-
     padding: 10px;
 }
-
-
-
-
 
 /* ---------------------------------Homepage--------------------------------------------- */
 .heading {
@@ -512,7 +403,6 @@ main{
 	font-family: var(--title-font-family);
 	color: var(--red);
 	font-size: 45px;
-
 }
 
 .jokes-container {
@@ -525,6 +415,7 @@ main{
 	margin-bottom: 20%;
 	font-size: 18px;
 }
+
 .red-laugh {
 	color: var(--red);
 }
@@ -544,33 +435,35 @@ main{
 }
 
 /* ---------------------------------Profile--------------------------------------------- */
-
-
 .acct-container {
 	font-family: var(--title-font-family);
 	text-align: center;
 }
+
 .pswd-container, .delete-acct-container {
 	font-family: 'Istok Web', sans-serif;
 	padding-top: 10px;
 }
+
 .btn-delete-acct:hover {
 	background-color: var(--red);
 }
+
 .pswd-input {
 	padding: 16px 18px;
 	border-radius: 10px;
-
 }
+
 .btn-pswd {
 	border-radius: 16px;
 	border: none;
-
 }
+
 .delete-acct-container {
 	padding: 20px;
 	text-align: center;
 }
+
 .btn-delete-acct {
 	font-size: 12px;
 	padding: 10px;
@@ -584,11 +477,11 @@ main{
 /* ---------------------------------MEDIA QUERIES--------------------------------------------- */
 /* For desktop: */
 @media only screen and (min-width: 768px) {
-
 	.heading {
 		margin-top: 1%;
 		font-size: var(--large-font-size);;
 	}
+
 	.subheading {
 		color: var(--green);
 		font-size: 40px;
@@ -604,16 +497,20 @@ main{
 	.individual-joke {
 		padding: 0px 6%;
 	}
+
 	.acct {
 		font-size: 35px;
 		text-align: center;
 	}
+
 	.acct-container {
 		text-align: left
 	}
+
 	.acct-form {
 		display: grid;
 	}
+
 	.pswd-input {
 		background-color: white;
 		color: rgb(6 6 6);
@@ -621,19 +518,23 @@ main{
 		border-radius: 10px;
 		border: 3px solid var(--green);
 	}
+
 	.btn-pswd {
 		border-radius: 16px;
 		border: none;
 		font-size: 15px;
 	}
+
 	.btn-delete-acct {
 		padding: 14px;
 		font-size: 15px;
 	}
+
 	.delete-acct-container {
 		padding: 10% 5% 5%;
 		text-align: left;
 	}
+
 	.signUp {
 		display: grid;
 	}
@@ -641,16 +542,20 @@ main{
 	.login-email, .login-pass {
 		border-radius: 10px;
 	}
+
 	.login-form {
 		display: grid;
 	}
+
 	.alert {
 		margin: 5%;
 		font-size: 18px;
 	}
+
 	.alert-error {
 		padding: 0 21%;
 	}
+
 	.alert-success {
 		position: absolute;
 	}
@@ -658,6 +563,7 @@ main{
 	#delete-container{
 		padding: 0px;
 	}
+
 	#delete-subheading {
 		padding-left: 0px;
 	}
