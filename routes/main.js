@@ -4,19 +4,51 @@ const passport = require('../config/ppConfig')
 const db = require('../models');
 const isLoggedIn = require('../middleware/isLoggedIn');
 
-// we use the middleware in the middle of our route to the profile (or any other page we want to restrict)
-router.get('/profile', isLoggedIn, (req, res) => {
-  res.render('profile');
+
+router.get('/', (req, res) => {
+  db.comedian.findAll()
+  .then((comedians) => {
+    db.topic.findAll({include: [db.joke]})
+    .then((topics) => {
+      db.user.findOne({
+        where: {id: req.user.id}, 
+        include: [db.joke]
+      }).then((currentUser) => {
+        res.render('main', { allTopics: topics, allComedians: comedians, currentUser: currentUser})
+      }).catch((error) => {
+        res.status(400).render('main/404')
+      })
+    })
+  })  
 });
 
-//GET functionality for populating comedian dropdown)
+router.post('/addjoke/:id', async (req, res) => {
+  try {
+    const foundJoke = await db.joke.findByPk(req.params.id)
+    foundJoke.likes = foundJoke.likes + 1
+    foundJoke.save()
+    const foundUser = await db.user.findByPk(req.user.id)
+    foundUser.addJoke(foundJoke)
+    res.redirect(`/main`)
+  } catch (error) {
+    req.flash('error', error.message)
+    res.redirect(`/main`)
+  }	 
+});
 
-//GET functionality for populating topic dropdown)  
-
-//POST functionality for selecting comedian 
-
-//POST functionality for selecting topic [if these are part of the nav bar that appears on all post-login pages, this only needs to be written once]
-
+router.post('/takejoke/:id', async (req, res) => {
+  try {
+    const foundJoke = await db.joke.findByPk(req.params.id)
+    foundJoke.likes = foundJoke.likes - 1
+    foundJoke.save()  
+    const foundUser = await db.user.findByPk(req.user.id)
+    foundUser.removeJoke(foundJoke)
+    res.redirect(`/main`) 
+  } catch (error) {
+    req.flash('error', error.message)
+    res.redirect(`/main`)
+  }	 
+});
 
 
 module.exports = router;

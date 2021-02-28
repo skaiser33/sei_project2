@@ -4,13 +4,35 @@ const passport = require('../config/ppConfig')
 const db = require('../models');
 const isLoggedIn = require('../middleware/isLoggedIn');
 
-// we use the middleware in the middle of our route to the profile (or any other page we want to restrict)
-router.get('/profile', isLoggedIn, (req, res) => {
-  res.render('profile');
+
+router.get('/', (req, res) => {
+  db.comedian.findAll()
+  .then((comedians) => {
+    db.topic.findAll()
+    .then((topics) => {
+      db.user.findOne({
+      where: {id: req.user.id}, 
+      include: [db.joke]
+      }).then((user) => {
+        res.render('favorites.ejs', {user: user, allTopics: topics, allComedians: comedians, currentUser: req.user});
+      })
+    })  
+  })
 });
 
-//GET functionality for populating joke list including comedian name, un-laugh button, laugh count 
+router.post('/takejoke/:id', async (req, res) => {
+  try {
+    const foundJoke = await db.joke.findByPk(req.params.id)
+    foundJoke.likes = foundJoke.likes - 1
+    foundJoke.save()  
+    const foundUser = await db.user.findByPk(req.user.id)
+    foundUser.removeJoke(foundJoke)
+    res.redirect('/favorites') 
+  } catch (error) {
+    req.flash('error', error.message)
+    res.redirect('/favorites')
+  }	 
+})
 
-//DELETE functionality for un-laugh
 
 module.exports = router;

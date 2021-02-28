@@ -1,24 +1,49 @@
-<h2>Main (Post-Login) </h2>
+<%- include('./partials/navbar.ejs') %>
 
-<!-- THESE COULD ALSO BE HOVERABLE DROPDOWNS...refer to this: https://www.w3schools.com/howto/howto_js_dropdown.asp -->
+<% let isFavorite %>
 
-<form method="POST" action="/comedian">
-  <label for="comedian">Choose a comedian:</label>
-  <select name="comedian" id="comedian">
-    <option value="placeholder1">placeholder1</option>
-    <option value="placeholder2">placeholder2</option>
-    <option value="placeholder3">placeholder3</option>
-  </select>
-  <input type="submit" value="Submit">
-</form>
+<div class="main-container">
+  <main>
+    <h1 class="heading">Giggle<span>Bytes</span></h1>
+      <div class="jokes-container">
+        <div class="info-container">
+          <p>If it's funny it's here.</p>
+        </div>
+        <div class="individual-joke">
+          <h3>We have jokes to spare:</h3>
+          <%const randomTopic = allTopics[Math.floor(Math.random() * allTopics.length)]%>
+          <%const randomJoke = randomTopic.dataValues.jokes[Math.floor(Math.random() * randomTopic.jokes.length)]%>
+          <p> "<%= randomJoke.content  %>" - <a href="/comedian?comedian=<%= allComedians[randomJoke.comedianId - 1].id%>"><%= allComedians[randomJoke.comedianId - 1].name  %></a></p>
+          <% isFavorite = false %>
+            <% for (i=0; i < currentUser.dataValues.jokes.length; i++) { %>
+              <% if (currentUser.dataValues.jokes[i].id === randomJoke.id) { %>
+                <% isFavorite = true; %>
+                <% break; %>
+              <% }  %>
+            <% }  %>
+          <div class="items-container">
+            <% if (isFavorite === false) { %>
+            <div class="laughs-container">
+              <form method="POST" action="/main/addjoke/<%= randomJoke.id %>">
+                <input hidden type="text">
+                <button class="laugh-btn" type="submit">Add A Laugh</button>
+              </form>
+            </div>
+            <% } else { %>
+              <div class="laughs-container">
+                <form method="POST" action="/main/takejoke/<%= randomJoke.id %>">
+                  <input hidden type="text">
+                  <button class="laugh-btn" type="submit">Remove A Laugh</button>
+                </form>
+              </div>
+            <% } %>
+            <div class="number-container">
+              <span class="laughs-number"> <%= randomJoke.likes  %> <span class="red-laugh">laughs</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+</div>
 
-<form method="POST" action="/topic">
-  <label for="topic">Choose a topic:</label>
-  <select name="topic" id="topic">
-    <option value="placeholder1">placeholder1</option>
-    <option value="placeholder2">placeholder2</option>
-    <option value="placeholder3">placeholder3</option>
-  </select>
-  <input type="submit" value="Submit">
-</form>  
-
+<footer>You are logged in as <%= currentUser.name %> </footer>

@@ -1,2 +1,45 @@
-<h2>filtered by Comedian</h2>
+<%- include('./partials/navbar.ejs') %>
 
+<% let isFavorite %>
+
+<div class="main-container">
+  <main>
+    <h1 class="heading subheading"><%= comedian.name  %></h1>
+    <% comedian.dataValues.jokes.sort(function(a, b){return b.likes-a.likes}).forEach(function(joke) { %>
+    <div class="jokes-container">
+      <div class="individual-joke">
+        <p> "<%= joke.content  %>"  %> </p>
+        <% isFavorite = false %> 
+        <% for (i=0; i < currentUser.dataValues.jokes.length; i++) { %> 
+          <% if (currentUser.dataValues.jokes[i].id === joke.id) { %> 
+            <% isFavorite = true; %> 
+            <% break; %> 
+          <% }  %>    
+        <% }  %> 
+        <div class="items-container">
+          <% if (isFavorite === false) { %>
+          <div class="laughs-container">
+            <form method="POST" action="/comedian/addjoke/<%= joke.id %> ">
+              <input hidden type="text">
+              <button class="laugh-btn" type="submit">Add A Laugh</button>
+            </form>
+          </div>
+          <% } else { %>
+          <div class="laughs-container">
+            <form method="POST" action="/comedian/takejoke/<%= joke.id %> ">
+              <input hidden type="text">
+              <button class="laugh-btn" type="submit">Remove A Laugh</button>
+            </form>
+          </div>
+          <% } %>
+          <div class="number-container">
+            <span class="laughs-number"> <%= joke.likes  %> <span class="red-laugh">laughs</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%}) %>
+  </main>
+</div>
+
+<footer>You are logged in as <%= currentUser.name %></footer>

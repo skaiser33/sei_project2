@@ -3,13 +3,9 @@ const db = require('../models');
 const bcrypt = require('bcrypt')
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    
+  up: async (queryInterface, Sequelize) => {   
     await db.sequelize.sync({force: true});
-    console.log('All models synced');
-
-    await queryInterface.bulkDelete('comedians', null, {truncate: true, cascade: true, restartIdentity: true});
-    
+    await queryInterface.bulkDelete('comedians', null, {truncate: true, cascade: true, restartIdentity: true});    
     const bulkComedians = await queryInterface.bulkInsert('comedians', [
       { name: 'Ellen DeGeneres',
       website: 'https://www.ellentube.com/',
@@ -42,11 +38,8 @@ module.exports = {
       updatedAt: new Date()
       }
     ], { returning: true });
-    
-    console.log(bulkComedians);
 
     await queryInterface.bulkDelete('jokes', null, {truncate: true, cascade: true, restartIdentity: true});
-
     const bulkJokes = await queryInterface.bulkInsert('jokes', [
       { content: `My grandmother started walking five miles a day when she was sixty. She's ninety-seven now, and we don't know where the heck she is.`,
       likes: 37,
@@ -60,7 +53,7 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
       },
-      { content: `In the beginning there was nothing. God said, "Let there be light!" And there was light. There was still nothing, but you could see it a whole lot better.`,
+      { content: `In the beginning there was nothing. God said, 'Let there be light!' And there was light. There was still nothing, but you could see it a whole lot better.`,
       likes: 9,
       comedianId: bulkComedians[0].id,
       createdAt: new Date(),
@@ -78,7 +71,7 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
       },
-      { content: `I went to a bookstore and asked the saleswoman, "Where's the self-help section?'" She said if she told me, it would defeat the purpose.`,
+      { content: `I went to a bookstore and asked the saleswoman, 'Where's the self-help section?' She said if she told me, it would defeat the purpose.`,
       likes: 15,
       comedianId: bulkComedians[1].id,
       createdAt: new Date(),
@@ -114,7 +107,7 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
       },
-      { content: `Isn’t it a bit unnerving that doctors call what they do "practice"?`,
+      { content: `Isn’t it a bit unnerving that doctors call what they do 'practice'?`,
       likes: 11,
       comedianId: bulkComedians[1].id,
       createdAt: new Date(),
@@ -150,19 +143,19 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
       },
-      { content: `Terrorists don't take black hostages. That's the truth. I have yet to see one of us on the news reading a hostage letter. Like, "Uh... they is treating us good. Uh, we are chilling and shit. I'd like to give a shout out to Ray-Ray and Big Steve and uh, send some Newports!"`,
+      { content: `Terrorists don't take black hostages. That's the truth. I have yet to see one of us on the news reading a hostage letter. Like, 'Uh... they is treating us good. Uh, we are chilling and shit. I'd like to give a shout out to Ray-Ray and Big Steve and uh, send some Newports!'`,
       likes: 52,
       comedianId: bulkComedians[3].id,
       createdAt: new Date(),
       updatedAt: new Date()
       },
-      { content: `They got a character on there named Oscar, they treat this guy like shit the entire show. They judge him right in his face, "Oscar you are so mean! Isn't he kids?", "Yeah Oscar! You're a grouch!" It's like, "Bitch! I live in a fucking trashcan!"`,
+      { content: `They got a character on there named Oscar, they treat this guy like shit the entire show. They judge him right in his face, 'Oscar you are so mean! Isn't he kids?', 'Yeah Oscar! You're a grouch!' It's like, 'Bitch! I live in a fucking trashcan!'`,
       likes: 14,
       comedianId: bulkComedians[3].id,
       createdAt: new Date(),
       updatedAt: new Date()
       },
-      { content: `All I'll say about Elian is thank God he's Cuban. 'Cause if he was Haitian you'd have never heard about his ass. If Elian Gonzales was Elian Mumumbo from Haiti, they would've pushed that little rubber tube right back in the water. "Sorry little fella, all full. Good luck!"`,
+      { content: `All I'll say about Elian is thank God he's Cuban. 'Cause if he was Haitian you'd have never heard about his ass. If Elian Gonzales was Elian Mumumbo from Haiti, they would've pushed that little rubber tube right back in the water. 'Sorry little fella, all full. Good luck!'`,
       likes: 26,
       comedianId: bulkComedians[3].id,
       createdAt: new Date(),
@@ -180,25 +173,25 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
       },
-      { content: `Trump getting coronavirus was like when Freddy Mercury got AIDS. Nobody was like, "Well, how did he get it?"`,
+      { content: `Trump getting coronavirus was like when Freddy Mercury got AIDS. Nobody was like, 'Well, how did he get it?'`,
       likes: 19,
       comedianId: bulkComedians[3].id,
       createdAt: new Date(),
       updatedAt: new Date()
       },
-      { content: `I like how on cop cars, “To protect and serve” is in quotes, like they're being sarcastic.`,
+      { content: `I like how on cop cars, 'To protect and serve'”' is in quotes, like they're being sarcastic.`,
       likes: 40,
       comedianId: bulkComedians[4].id,
       createdAt: new Date(),
       updatedAt: new Date()
       },
-      { content: `The phrase, “Don’t take this the wrong way” has a zero percent success rate.`,
+      { content: `The phrase, 'Don’t take this the wrong way' has a zero percent success rate.`,
       likes: 56,
       comedianId: bulkComedians[4].id,
       createdAt: new Date(),
       updatedAt: new Date()
       },
-      { content: `Just tried to switch to Bing… Google was like, “You can, but it’d be a real shame if some of your old searches got out.”`,
+      { content: `Just tried to switch to Bing… Google was like, 'You can, but it’d be a real shame if some of your old searches got out.'`,
       likes: 24,
       comedianId: bulkComedians[4].id,
       createdAt: new Date(),
@@ -216,7 +209,7 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
       },
-      { content: `Relationships nowadays = First week: I love you baby.. Second week: Together forever.. Third week: Single.`,
+      { content: `Relationships nowadays = First week: 'I love you baby.' Second week: Together forever.. Third week: Single.`,
       likes: 22,
       comedianId: bulkComedians[5].id,
       createdAt: new Date(),
@@ -228,7 +221,7 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
       },
-      { content: `I DON’T have EX’s! I have Y’s. Like "Y the hell did I date you?!"`,
+      { content: `I DON’T have EX’s! I have Y’s. Like 'Y the hell did I date you?!'`,
       likes: 2,
       comedianId: bulkComedians[5].id,
       createdAt: new Date(),
@@ -247,8 +240,6 @@ module.exports = {
       updatedAt: new Date()
       }
       ], { returning: true });
-
-    console.log(bulkJokes);
 
     await queryInterface.bulkDelete('users', null, {truncate: true, cascade: true, restartIdentity: true});
 
@@ -273,10 +264,7 @@ module.exports = {
       }
       ], { returning: true });
 
-    console.log(bulkUsers);
-
     await queryInterface.bulkDelete('topics', null, {truncate: true, cascade: true, restartIdentity: true});
-
     const bulkTopics = await queryInterface.bulkInsert('topics', [
       { name: 'Age',
         createdAt: new Date(),
@@ -388,10 +376,7 @@ module.exports = {
       }
     ], { returning: true });
 
-    console.log(bulkTopics);
-
     await queryInterface.bulkDelete('usersJokes', null, {truncate: true, cascade: true, restartIdentity: true});
-
     const bulkUsersJokes = await queryInterface.bulkInsert('usersJokes', [
       { userId: 1,
         jokeId: 2,
@@ -440,10 +425,7 @@ module.exports = {
       }
     ], { returning: true });
 
-    console.log(bulkUsersJokes);
-
     await queryInterface.bulkDelete('jokesTopics', null, {truncate: true, cascade: true, restartIdentity: true});
-
     const bulkJokesTopics = await queryInterface.bulkInsert('jokesTopics', [
       { jokeId: 1,
         topicId: 1,
@@ -676,12 +658,9 @@ module.exports = {
         updatedAt: new Date()
       },
     ], { returning: true });
-
-    console.log(bulkUsersJokes);
   },
 
-
   down: function (queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('authors', null, {})
+    return queryInterface.bulkDelete('comedians', null, {})
   }
 }

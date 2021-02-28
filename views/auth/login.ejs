@@ -1,9 +1,16 @@
-<form action="/auth/login" method="POST">
-  <label for="auth-email">Email</label>
-  <input id="auth-email" type="email" name="email">
+<div>
+  <%- include('../partials/signup-btn.ejs') %>
+</div>
 
-  <label for="auth-password">Password</label>
-  <input id="auth-password" type="password" name="password">
-
-  <input type="submit" value="Log In">
-</form>
+<div class="signup-container">
+  <h1 class="login-title">LogIn</h1>
+  <form class="login-form" action="/auth/login" method="POST">
+    <div class="email">
+      <input placeholder="Enter Email" class="login-email" id="auth-email" type="email" name="email">
+    </div>
+    <div class="password">
+      <input placeholder="Enter Password" class="login-pass" id="auth-password" type="password" name="password">
+    </div>
+    <input class="login-submit-btn" type="submit" value="Submit">
+  </form>
+</div>

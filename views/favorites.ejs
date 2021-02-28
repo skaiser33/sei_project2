@@ -1,2 +1,27 @@
-<h2>User Favorites</h2>
+<%- include('./partials/navbar.ejs') %>
 
+<div class="main-container">
+  <main>
+    <h1 class="heading subheading"><%= user.name  %>'s Favorite Jokes</h1>
+    <% user.dataValues.jokes.sort(function(a, b){return b.likes-a.likes}).forEach(function(joke) { %>
+    <div class="jokes-container">
+      <div class="individual-joke">
+        <p> "<%= joke.content  %>" - <a href="/comedian?comedian=<%= allComedians[joke.comedianId - 1].id%>"><%= allComedians[joke.comedianId - 1].name  %></a></p>
+        <div class="items-container">
+          <div class="laughs-container">
+            <form method="POST" action="/favorites/takejoke/<%= joke.id %>">
+              <input hidden type="text">
+              <button class="laugh-btn" type="submit">Remove A Laugh</button>
+            </form>
+          </div>
+          <div class="number-container">
+            <span class="laughs-number"> <%= joke.likes  %> <span class="red-laugh">laughs</span> </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%}) %>
+  </main>
+</div>
+
+<footer>You are logged in as <%= currentUser.name %> </footer>
