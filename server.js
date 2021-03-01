@@ -6,6 +6,8 @@ const passport = require('./config/ppConfig');
 const flash = require('connect-flash');
 const isLoggedIn = require('./middleware/isLoggedIn');
 const ejsLint = require('ejs-lint');
+const favicon = require('serve-favicon');
+const path = require('path');
 
 const app = express();
 
@@ -14,6 +16,7 @@ app.set('view engine', 'ejs');
 app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
+app.use(favicon(path.join(__dirname + '/public/images/favicon.ico')));
 app.use(layouts);
 app.use(session({
   secret: process.env.SESSION_SECRET,
